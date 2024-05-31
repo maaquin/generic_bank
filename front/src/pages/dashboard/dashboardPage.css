@@ -246,3 +246,73 @@ footer p {
 .buscador:focus{
     outline: none;
 }
+
+.divisa-container {
+    font-family: Tahoma, sans-serif;
+    max-width: 900px; /* Reducido el máximo ancho del contenedor */
+    margin: auto;
+    background-color: hsl(0, 0%, 96%);
+    padding: 10px; /* Reducido el padding para disminuir el espacio interno */
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed; /* Cambiado a posición fija para evitar que ocupe espacio según el desplazamiento de la página */
+    bottom: 400px; /* Ajustado para colocar el cuadro más abajo */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.divisa-header {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 24px;
+    color: #333;
+}
+
+.divisa-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.divisa-input,
+.divisa-select {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.divisa-arrow {
+    font-size: 24px;
+}
+
+.divisa-button {
+    padding: 10px 20px;
+    background-color: #6faff5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.divisa-button:hover {
+    background-color: #1c7fe9;
+}
+
+.divisa-result {
+    text-align: center;
+}
+
+.divisa-result p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}
