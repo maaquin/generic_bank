@@ -12,7 +12,7 @@ export const useContinuar = () => {
 
     const navigate = useNavigate()
 
-    const continuar = async( dpi, nombre, direccion, telefono, trabajo, ingresos, monto) => {
+    const continuar = async( dpi, nombre, direccion, telefono, trabajo, ingresos, monto ) => {
         const response = await continuarRequest({
             email, 
             dpi, 
