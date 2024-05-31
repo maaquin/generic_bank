@@ -28,6 +28,17 @@ export const register = async (data) => {
         }
     }
 }
+export const continuar = async (data) => {
+    try{
+        return await apiClient.put('/auth/continuar', data)
+    }catch(e){
+        console.log(e)
+        return{
+            error: true,
+            e
+        }
+    }
+}
 export const updateUser = async (data, token) => {
     try{
         const response = await apiClient.put('/settings/update', data, {

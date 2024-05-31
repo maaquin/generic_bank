@@ -1,4 +1,4 @@
-export const Divisa = () => {
+export const Settings = () => {
 
     return (
         <div>

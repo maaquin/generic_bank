@@ -134,7 +134,7 @@ export const Register = ({ switchAuthHandler }) => {
                     <i className="fa-solid fa-lock"></i>
                 </div>
                 <button onClick={handleRegister} disabled={isSubmitButtonDisable}>
-                    Register
+                    Continue
                 </button>
             </form>
             <span onClick={switchAuthHandler} className="auth-form-switch-label">

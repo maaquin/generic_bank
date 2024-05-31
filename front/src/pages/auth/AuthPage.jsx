@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { Login } from '../../components/Login'
 import { Register } from '../../components/Register'
+import { Continuar } from '../../components/Continuar'
 import { Route, Routes } from "react-router-dom";
 
 import './authPage.css'
@@ -23,6 +24,7 @@ export const AuthPage = () => {
             )}
           </div>
         } />
+      <Route path="/continuar" element={<Continuar/>}/>
       </Routes>
     </div>
   )

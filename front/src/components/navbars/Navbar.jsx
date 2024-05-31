@@ -57,12 +57,6 @@ export const Navbar = () => {
                     onClickHandler={() => handleNavigate('/divisa', 'divisa')}
                     isActive={activeButton === 'divisa'}
                 />
-                <NavButton
-                    text="Transferencia"
-                    icon="fa-solid fa-piggy-bank"
-                    onClickHandler={() => handleNavigate('/transferencia', 'transferencia')}
-                    isActive={activeButton === 'transferencia'}
-                />
                 {!isLogged ? (
                     <NavButton
                         text="Log in"
@@ -72,6 +66,24 @@ export const Navbar = () => {
                     />
                 ) : (
                     <div className="mini-buttons-container">
+                        <NavButton
+                            text="Canjear"
+                            icon="fa-solid fa-bag-shopping"
+                            onClickHandler={() => handleNavigate('/canjear', 'canjear')}
+                            isActive={activeButton === 'canjear'}
+                        />
+                        <NavButton
+                            text="Favoritos"
+                            icon="fa-solid fa-star"
+                            onClickHandler={() => handleNavigate('/favoritos', 'favoritos')}
+                            isActive={activeButton === 'favoritos'}
+                        />
+                        <NavButton
+                            text="Transferencia"
+                            icon="fa-solid fa-piggy-bank"
+                            onClickHandler={() => handleNavigate('/transferencia', 'transferencia')}
+                            isActive={activeButton === 'transferencia'}
+                        />
                         <NavButton
                             text="Settings"
                             icon="fa-solid fa-gear"
