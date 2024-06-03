@@ -7,7 +7,8 @@ import {
     usuariosPut,
     passwordPatch,
     listUser,
-    transferencia
+    transferencia,
+    getAdditionalUserInfo
 } from "./settingsUser.controller.js";
 
 const router = Router()
@@ -17,5 +18,6 @@ router.post('/user', getUserSetting)
 router.put('/user', [validarCampos], usuariosPut)
 router.put('/transferencia', [validarCampos], transferencia)
 router.patch('/user', passwordPatch)
+router.post('/additionalUserInfo', getAdditionalUserInfo)
 
 export default router

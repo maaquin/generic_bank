@@ -79,10 +79,10 @@ export const Navbar = () => {
                             isActive={activeButton === 'favoritos'}
                         />
                         <NavButton
-                            text="Transferencia"
+                            text="Transferir"
                             icon="fa-solid fa-piggy-bank"
-                            onClickHandler={() => handleNavigate('/transferencia', 'transferencia')}
-                            isActive={activeButton === 'transferencia'}
+                            onClickHandler={() => handleNavigate('/cuentas', 'cuentas')}
+                            isActive={activeButton === 'cuentas'}
                         />
                         <NavButton
                             text="Settings"

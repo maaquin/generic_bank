@@ -98,3 +98,27 @@ export const passwordPatch = async (req, res) => {
         return res.status(500).send('Somthing went wrong')
     }
 }
+
+export const getAdditionalUserInfo = async (req, res) => {
+    try {
+
+        const { userId } = req.body;
+        console.log(userId)
+
+        const userData = await User.findById(userId)
+
+        if (!userData) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        console.log(userData.monto)
+
+        return res.status(200).json({
+            userData
+        })
+
+    } catch (error) {
+        console.error('Error al obtener la información adicional del usuario:', error);
+        res.status(500).json({ message: 'Error del servidor' });
+    }
+};

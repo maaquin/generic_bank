@@ -246,3 +246,40 @@ footer p {
 .buscador:focus{
     outline: none;
 }
+
+.cuentas-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.usuario-info {
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px; 
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+}
+
+.usuario-info h3 {
+    margin-bottom: 10px;
+    color: #333; 
+}
+
+.usuario-info p {
+    margin: 5px 0;
+    color: #666;
+}
+
+.barra-superior {
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px;
+    border-top-left-radius: 8px; 
+    border-top-right-radius: 8px; 
+    margin-bottom: 20px; /* Agrega espacio entre la barra y el contenido */
+}
+

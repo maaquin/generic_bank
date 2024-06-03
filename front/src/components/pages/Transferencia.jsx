@@ -5,10 +5,10 @@ export const Transferencia = () => {
     const [remitenteId, setRemitenteId] = useState('');
     const [destinatarioId, setDestinatarioId] = useState('');
     const [monto, setMonto] = useState('');
-    const [agregarCuenta, setAgregarCuenta] = useState(false); // Estado para controlar la visualización del formulario de agregar cuenta
+    const [agregarCuenta, setAgregarCuenta] = useState(false);
 
     const handleAgregarCuenta = () => {
-        setAgregarCuenta(true); // Mostrar el formulario de agregar cuenta
+        setAgregarCuenta(true); 
     };
 
     const handleSubmit = async (e) => {
@@ -46,7 +46,6 @@ export const Transferencia = () => {
             ) : (
                 <button onClick={handleAgregarCuenta}>Agregar Cuenta</button>
             )}
-            {/* Formulario de transferencia */}
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="remitenteId">ID del Remitente:</label>
