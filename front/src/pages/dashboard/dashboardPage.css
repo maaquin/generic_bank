@@ -249,21 +249,32 @@ footer p {
 
 .divisa-container {
     font-family: Tahoma, sans-serif;
-    max-width: 900px; /* Reducido el máximo ancho del contenedor */
-    margin: auto;
+    width: 95%; /* Utiliza el 95% del ancho disponible */
+    max-width: 800px; /* Establece un ancho máximo de 800px */
+    margin: 120px auto 0 auto; /* Centra el contenedor horizontalmente y agrega un margen superior de 50px */
     background-color: hsl(0, 0%, 96%);
-    padding: 10px; /* Reducido el padding para disminuir el espacio interno */
-    border-radius: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Aumentado el padding */
+    border-radius: 30px; /* Aumentado el radio del borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumentado el tamaño de la sombra */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed; /* Cambiado a posición fija para evitar que ocupe espacio según el desplazamiento de la página */
-    bottom: 400px; /* Ajustado para colocar el cuadro más abajo */
-    left: 50%;
-    transform: translateX(-50%);
 }
+
+
+
+.divisa-chart-container {
+    width: 100%; /* Utiliza el ancho completo del contenedor */
+    max-width: 100%; /* El gráfico se ajustará al tamaño del contenedor */
+}
+
+.divisa-chart {
+    width: 100%; /* El gráfico ocupará todo el espacio disponible */
+    max-width: 100%; /* El gráfico se ajustará al tamaño del contenedor */
+    height: auto; /* La altura se ajustará automáticamente */
+}
+
 
 
 .divisa-header {
@@ -316,3 +327,4 @@ footer p {
     font-size: 18px;
     color: #333;
 }
+
