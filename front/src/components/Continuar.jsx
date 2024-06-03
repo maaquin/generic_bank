@@ -123,14 +123,19 @@ export const Continuar = () => {
                 <div className="input-box">
                     <Input
                         field='dpi'
-                        placeholder='Npumero de dpi'
+                        placeholder='Número de dpi'
                         className='login-input'
                         value={formState.dpi.value}
                         onChangeHandler={handleInputValueChange}
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-fingerprint"></i>
+                    {formState.dpi.showError && !formState.dpi.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.dpi.showError && (
+                        <i className="fa-solid fa-fingerprint"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -142,7 +147,12 @@ export const Continuar = () => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-signature"></i>
+                    {formState.nombre.showError && !formState.nombre.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.nombre.showError && (
+                        <i className="fa-solid fa-signature"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -154,7 +164,12 @@ export const Continuar = () => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-diamond-turn-right"></i>
+                    {formState.direccion.showError && !formState.direccion.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.direccion.showError && (
+                        <i className="fa-solid fa-diamond-turn-right"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -166,7 +181,12 @@ export const Continuar = () => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-mobile-button"></i>
+                    {formState.telefono.showError && !formState.telefono.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.telefono.showError && (
+                        <i className="fa-solid fa-mobile-button"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -178,7 +198,12 @@ export const Continuar = () => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-building"></i>
+                    {formState.trabajo.showError && !formState.trabajo.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.trabajo.showError && (
+                        <i className="fa-solid fa-building"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -190,7 +215,12 @@ export const Continuar = () => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-money-bill-wheat"></i>
+                    {formState.ingresos.showError && !formState.ingresos.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.ingresos.showError && (
+                        <i className="fa-solid fa-money-bill-wheat"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -202,7 +232,12 @@ export const Continuar = () => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-piggy-bank"></i>
+                    {formState.monto.showError && !formState.monto.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.monto.showError && (
+                        <i className="fa-solid fa-piggy-bank"></i>
+                    )}
                 </div>
                 <button onClick={handleContinuar} disabled={isSubmitButtonDisable}>
                     Register

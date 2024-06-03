@@ -246,3 +246,84 @@ footer p {
 .buscador:focus{
     outline: none;
 }
+
+.divisa-container {
+    font-family: Tahoma, sans-serif;
+    width: 95%; /* Utiliza el 95% del ancho disponible */
+    max-width: 800px; /* Establece un ancho máximo de 800px */
+    margin: 120px auto 0 auto; /* Centra el contenedor horizontalmente y agrega un margen superior de 50px */
+    background-color: hsl(0, 0%, 96%);
+    padding: 20px; /* Aumentado el padding */
+    border-radius: 30px; /* Aumentado el radio del borde */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumentado el tamaño de la sombra */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.divisa-chart-container {
+    width: 100%; /* Utiliza el ancho completo del contenedor */
+    max-width: 100%; /* El gráfico se ajustará al tamaño del contenedor */
+}
+
+.divisa-chart {
+    width: 100%; /* El gráfico ocupará todo el espacio disponible */
+    max-width: 100%; /* El gráfico se ajustará al tamaño del contenedor */
+    height: auto; /* La altura se ajustará automáticamente */
+}
+
+
+
+.divisa-header {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 24px;
+    color: #333;
+}
+
+.divisa-input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.divisa-input,
+.divisa-select {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.divisa-arrow {
+    font-size: 24px;
+}
+
+.divisa-button {
+    padding: 10px 20px;
+    background-color: #6faff5;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.divisa-button:hover {
+    background-color: #1c7fe9;
+}
+
+.divisa-result {
+    text-align: center;
+}
+
+.divisa-result p {
+    margin: 0;
+    font-size: 18px;
+    color: #333;
+}

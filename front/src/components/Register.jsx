@@ -95,7 +95,12 @@ export const Register = ({ switchAuthHandler }) => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-envelope"></i>
+                    {formState.email.showError && !formState.email.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.email.showError && (
+                        <i className="fa-solid fa-envelope"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -107,7 +112,12 @@ export const Register = ({ switchAuthHandler }) => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-user"></i>
+                    {formState.username.showError && !formState.username.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.username.showError && (
+                        <i className="fa-solid fa-user"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -119,7 +129,12 @@ export const Register = ({ switchAuthHandler }) => {
                         type='password'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-key"></i>
+                    {formState.password.showError && !formState.password.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.password.showError && (
+                        <i className="fa-solid fa-key"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -131,7 +146,12 @@ export const Register = ({ switchAuthHandler }) => {
                         type='password'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-lock"></i>
+                    {formState.passwordConfirm.showError && !formState.passwordConfirm.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.passwordConfirm.showError && (
+                        <i className="fa-solid fa-lock"></i>
+                    )}
                 </div>
                 <button onClick={handleRegister} disabled={isSubmitButtonDisable}>
                     Continue
