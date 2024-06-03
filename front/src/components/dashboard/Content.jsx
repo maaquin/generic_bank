@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import { Settings } from '../pages/Settings';
 import { Canjear } from '../pages/Canjear';
-import { Favoritos } from '../pages/Favoritos';
+import { Favoritos } from '../pages/Favoritos.jsx';
 import { Home } from '../pages/Home';
 import { Transferencia } from '../pages/Transferencia';
 import { Divisa } from '../pages/Divisa';
