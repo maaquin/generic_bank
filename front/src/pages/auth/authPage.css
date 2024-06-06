@@ -1,0 +1,153 @@
+.container{
+  width: 100%;
+  height: 100%;
+  background-image: url('https://as1.ftcdn.net/v2/jpg/03/55/16/82/1000_F_355168246_XvznxkLAY52UvDOIVrweHgOV5TMheHR2.jpg');
+
+}
+
+.auth-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .new-store-container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .btn-box{
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    flex-grow: 1
+  }
+  
+  .login-container,
+  .continuar-container,
+  .register-container {
+    width: 400px;
+    margin: 0 auto;
+    grid-template-columns: 1fr max-content;
+    column-gap: .75rem;
+    align-items: center;
+    border: 2px solid white;
+    padding-inline: 1.25rem;
+    border-radius: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: auto;
+    padding: 25px;
+    background-color: rgba(240, 240, 240, 0.6);
+  }
+  
+  .register-container {
+    height: 530px;
+  }
+  
+  .auth-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .auth-form input {
+    margin: 5px 0;
+    padding: 5px;
+    width: 400px;
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+  }
+  
+  .auth-form button {
+    cursor: pointer;
+    background-color: #3c3c3c;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    width: 410px;
+    height: 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: 0.3s;
+    line-height: 10px;
+  }
+  
+  .auth-form button:hover {
+    opacity: 0.8;
+  }
+  
+  .auth-form button:disabled {
+    cursor: not-allowed;
+  }
+  
+  .auth-form-label {
+    width: 410px;
+    font-weight: 500;
+  }
+  
+  .login-input{
+    color: rgb(235, 225, 225);
+    height: 28px;
+    width: 50px;
+    background-color: none;
+    border: none;
+    outline: none;
+    flex-grow: 1;
+  }
+  
+  .input-box{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid white;
+    margin-top: 20px;
+    border-radius: 15px;
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .input-box i {
+    position: absolute;
+    margin-left: 380px;
+    margin-top: -34px;
+  }
+  
+  .auth-form-logo-container {
+    font-size: 26px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-text{
+    color: #000;
+    font-family: "Roboto Slab", serif;
+    font-size: 40px;
+    font-weight: 800;
+  }
+  
+  .auth-form-switch-label {
+    color: #333333;
+    font-size: 14px;
+    transition: 0.3s;
+    cursor: pointer;
+    padding-top: 5px;
+  }
+  
+  .auth-form-switch-label:hover {
+    opacity: 0.8;
+  }
+
+  
