@@ -18,7 +18,11 @@ const productSchema = mongoose.Schema({
     estado:{
         type: Boolean,
         default: true
-    }
+    },
+    discountedPrice: {
+        type: Schema.Types.Number,
+        min: 0.01
+    },
 })
 
 export default mongoose.model('Product', productSchema)

@@ -6,3 +6,7 @@ export { useLogout } from './user/useLogout'
 export { useUserDetails } from './user/useUserDetails'
 export { useChangePassword } from './user/useChangePassword'
 export { useUserSettings } from './user/useUserSettings'
+
+//Canjear
+export { useCanjear } from './canjear/useCanjear'
+export { useCanjearDetails } from './canjear/useCanjearDetails'

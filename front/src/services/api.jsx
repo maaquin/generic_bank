@@ -85,3 +85,30 @@ export const patchChangePassword = async (data) => {
     }
 }
 
+// Producto
+export const getCanjear = async () => {
+    try {
+        return await apiClient.get('/product', {
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
+    } catch (e) {
+        console.log(e);
+        return {
+            error: true,
+            e
+        };
+    }
+};
+
+export const getCanjearDetails = async (productId) => {
+    try {
+        return await apiClient.get(`/product/${productId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+};

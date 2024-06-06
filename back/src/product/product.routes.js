@@ -1,7 +1,6 @@
 import { Router } from "express";
 
 import { validarCampos } from "../middlewares/validar-campos.js";
-import { validarJWT } from "../middlewares/validar-jwt.js";
 
 import { 
     newProduct, 
@@ -12,8 +11,8 @@ import {
 
 const router = Router()
 
-router.post("/", [validarJWT, validarCampos ], newProduct);
+router.post("/", [ validarCampos ], newProduct);
 router.get("/", listProducts);
 router.get("/:id", listProductId);
-router.put("/delete", [validarJWT], deleteProduct);
+router.put("/delete", deleteProduct);
 export default router;
