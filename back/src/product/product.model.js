@@ -15,6 +15,10 @@ const productSchema = mongoose.Schema({
         required: true,
         min: 0.01
     },
+    discountedPrice: {
+        type: Schema.Types.Number,
+        min: 0.01
+    },
     estado:{
         type: Boolean,
         default: true

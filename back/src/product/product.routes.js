@@ -12,7 +12,7 @@ import {
 
 const router = Router()
 
-router.post("/", [validarJWT, validarCampos ], newProduct);
+router.post("/", [ validarCampos ], newProduct);
 router.get("/", listProducts);
 router.get("/:id", listProductId);
 router.put("/delete", [validarJWT], deleteProduct);

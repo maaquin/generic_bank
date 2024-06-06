@@ -13,7 +13,7 @@ export const newProduct = async (req, res) => {
         });
 
         const savedProduct = await saveProduct.save();
-
+ 
         return res.status(201).json(savedProduct);
     } catch (error) {
         console.error(error);

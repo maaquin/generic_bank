@@ -10,6 +10,7 @@ import authRoutes from '../src/auth/auth.routes.js'
 import productRoutes from '../src/product/product.routes.js'
 import serviceRoutes from '../src/service/service.routes.js'
 import settingsRoutes from '../src/settings/settings.routes.js'
+import promotionRoutes from '../src/promotion/promotion.routes.js'
 
 import { dbConnection } from './mongo.js'
 
@@ -18,7 +19,8 @@ class Server{
         this.app = express()
         this.port = process.env.PORT
         this.authPath = '/banco/v1/auth'
-        this.productPath = '/banco/v1/producto'
+        this.productPath = '/banco/v1/product'
+        this.promotionPath = '/banco/v1/promotion'
         this.settingsPath = '/banco/v1/settings'
         this.servicePath = '/banco/v1/services'
 
@@ -45,6 +47,7 @@ class Server{
         this.app.use(this.productPath, productRoutes);
         this.app.use(this.settingsPath, settingsRoutes);
         this.app.use(this.servicePath, serviceRoutes);
+        this.app.use(this.promotionPath, promotionRoutes);
     }
 
     listen(){

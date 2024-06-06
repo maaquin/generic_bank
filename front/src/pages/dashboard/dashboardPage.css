@@ -246,3 +246,235 @@ footer p {
 .buscador:focus{
     outline: none;
 }
+
+.channels-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+    width: calc(100% - 40px);
+    margin-top: 10px;
+    margin-bottom: 150px;
+    margin-left: 30px;
+}
+
+.title-supreme{
+    position: absolute;
+    margin-left: 30px;
+    font-size: 60px;
+    font-weight: 400;
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+}
+
+.buscador-box{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #aaaaaa;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-top: 30px;
+    margin-left: calc(100% - 375px);
+    height: 40px;
+    min-width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscador-box i{
+    color: #8f8f8f;
+    margin-right: 5px;
+}
+
+.nono{
+    margin-top: 300px;
+    margin-left: calc(100% - -150px);
+    width: 400px;
+    font-size: 30px;
+    font-weight: 600;
+    color: #820808;
+}
+
+.channels-img-container {
+    width: 100%;
+    height: 200px;
+    overflow: hidden; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.channels-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.channels-card {
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-bottom: -120px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    text-align: center;
+    display: block;
+}
+
+.channels-card-title {
+    font-size: 22px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #0e0e10;
+}
+
+.channels-card-text {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.channel-description-container {
+    margin-top: 20px;
+}
+
+.channel-description-title-box {
+    margin-left: 120px;
+    position: absolute;
+}
+
+.channel-description-title {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.store-btn{
+    gap: 5px;
+    align-content: center;
+    margin-left: auto;
+    right: 0;
+    margin-top: -12px;
+}
+
+.channel-description-box {
+    margin-top: 100px;
+    margin-left: 120px;
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+
+.channel-description-item {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+.channel-description-title2 {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.channel-description {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.channel-video-container {
+    display: flex;
+    justify-content: center;
+    height: auto;
+    width: 50%;
+    margin-left: 25%;
+    margin-top: 50px;
+}
+
+.channel-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+
+.channel-video-description-section {
+    height: 100%;
+    width: 100%;
+    align-items: center;
+}
+
+.channel-description-box2 {
+    display: flex;
+}
+
+.channels-card {
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-bottom: -120px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+}
+
+.channels-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.channels-card .price {
+    font-size: 28px;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.channels-card .description {
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    color: #666;
+    text-align: center;
+}
+
+.channel-description-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+.channel-description .price {
+    font-size: 28px;
+    color: blue;
+    font-weight: bold;
+    text-align: center;
+}
+
+.channel-description .discounted-price {
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+    text-decoration: line-through;
+    text-align: center;
+}
+
+.channels-card-divider {
+    width: 80%;
+    height: 1px;
+    background-color: #ccc;
+    margin: 10px 0;
+}
+ 
