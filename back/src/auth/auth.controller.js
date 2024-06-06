@@ -18,12 +18,13 @@ export const register = async (req, res) => {
     const user = await User.create({
       username,
       email: email.toLowerCase(),
-      password: encryptedPassword
+      password: encryptedPassword,
     });
 
     return res.status(200).json({
       msg: "Usuario registrado. Revisa tu correo para confirmar tu cuenta.",
       userDetails: {
+        id: user.id,
         user: user.username,
         email: user.email,
       },
@@ -40,7 +41,16 @@ const generarNumeroCuenta = () => {
 
 export const continuar = async (req, res) => {
   try {
-    const { email, dpi, nombre, direccion, telefono, trabajo, ingresos, monto } = req.body;
+    const {
+      email,
+      dpi,
+      nombre,
+      direccion,
+      telefono,
+      trabajo,
+      ingresos,
+      monto,
+    } = req.body;
 
     const cuenta = generarNumeroCuenta();
 
@@ -59,7 +69,7 @@ export const continuar = async (req, res) => {
       usuarioExistente = await usuarioExistente.save();
 
       return res.status(200).json({
-        msg: 'Usuario actualizado exitosamente',
+        msg: "Usuario actualizado exitosamente",
         usuario: usuarioExistente,
       });
     } else {
@@ -72,13 +82,13 @@ export const continuar = async (req, res) => {
         trabajo,
         ingresos,
         monto,
-        cuenta, 
+        cuenta,
       });
 
       const usuarioGuardado = await nuevoUsuario.save();
 
       return res.status(200).json({
-        msg: 'Usuario creado exitosamente',
+        msg: "Usuario creado exitosamente",
         usuario: usuarioGuardado,
       });
     }
@@ -96,7 +106,7 @@ export const login = async (req, res) => {
     const user = await User.findOne({ email: email.toLowerCase() });
 
     if (user && (await bcryptjs.compare(password, user.password))) {
-      const token = await generarJWT(user.id, user.email)
+      const token = await generarJWT(user.id, user.email);
 
       res.status(200).json({
         msg: "Login Ok!!!",
@@ -104,7 +114,6 @@ export const login = async (req, res) => {
           email: user.email,
           id: user.id,
           token: token,
-          hotel: user.hotel,
         },
       });
     }
@@ -120,9 +129,7 @@ export const login = async (req, res) => {
     if (!validPassword) {
       return res.status(400).send("wrong password");
     }
-
   } catch (e) {
     res.status(500).send("Comuniquese con el administrador");
   }
 };
-
