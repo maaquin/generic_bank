@@ -26,6 +26,7 @@ export const register = async (req, res) => {
       userDetails: {
         user: user.username,
         email: user.email,
+        id: user.id
       },
     });
   } catch (e) {
@@ -81,8 +82,7 @@ export const login = async (req, res) => {
         userDetails: {
           email: user.email,
           id: user.id,
-          token: token,
-          hotel: user.hotel,
+          token: token
         },
       });
     }

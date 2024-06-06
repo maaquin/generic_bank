@@ -1,9 +1,23 @@
 import User from '../users/user.model.js'
+import Fav from '../users/fav.model.js'
 import bcryptjs from 'bcryptjs'
 
 export const listUser = async (req, res) => {
     try {
         const user = await User.find();
+        return res.status(200).json(user);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Something went wrong');
+    }
+};
+
+export const listEmail = async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        const user = await User.find({ email: { $regex: email, $options: 'i' } });
+
         return res.status(200).json(user);
     } catch (error) {
         console.error(error);
@@ -57,11 +71,11 @@ export const transferencia = async (req, res) => {
     const user = await User.findById(userId)
     const newMonto = ''
 
-    if(signo === 'suma'){
+    if (signo === 'suma') {
         newMonto = user.monto + monto
         return newMonto;
     }
-    if(signo === 'resta'){
+    if (signo === 'resta') {
         newMonto = user.monto - monto
         return newMonto;
     }
@@ -98,3 +112,49 @@ export const passwordPatch = async (req, res) => {
         return res.status(500).send('Somthing went wrong')
     }
 }
+
+
+
+export const listFav = async (req, res) => {
+    try {
+        const { id } = req.params
+        const fav = await Fav.find({user1: id});
+        return res.status(200).json(fav);
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send('Something went wrong');
+    }
+};
+
+export const addFav = async (req, res) => {
+    try {
+        const { user1, user2 } = req.body;
+
+        const fav = await Fav.create({
+            user1,
+            user2
+        });
+
+        return res.status(200).json({
+            fav
+        });
+    } catch (e) {
+        console.log(e);
+        return res.status(500).send("No se pudo :(");
+    }
+};
+
+export const deleteFav = async (req, res) => {
+    try {
+
+        const { id } = req.parms;
+        const fav = await Fav.findByIdAndDelete(id);
+        return res.status(200).json({
+            fav
+        });
+        
+    } catch (e) {
+        console.log(e);
+        return res.status(500).send("No se pudo :(");
+    }
+};

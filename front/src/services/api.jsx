@@ -84,6 +84,48 @@ export const patchChangePassword = async (data) => {
         }
     }
 }
+export const email = async (data) => {
+    try{
+        return await apiClient.post('/settings/email', data)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+//fav
+export const listFav = async (id) => {
+    try{
+        return await apiClient.get(`/settings/fav/${id}`)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+export const addFav = async (data) => {
+    try{
+        return await apiClient.post('/settings/fav', data)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+export const deleteFav = async (id) => {
+    try{
+        return await apiClient.delete(`/settings/fav/${id}`)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
 
 // Producto
 export const getCanjear = async () => {

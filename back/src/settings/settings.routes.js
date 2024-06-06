@@ -7,7 +7,11 @@ import {
     usuariosPut,
     passwordPatch,
     listUser,
-    transferencia
+    transferencia,
+    addFav,
+    deleteFav,
+    listFav,
+    listEmail
 } from "./settingsUser.controller.js";
 
 const router = Router()
@@ -17,5 +21,10 @@ router.post('/user', getUserSetting)
 router.put('/user', [validarCampos], usuariosPut)
 router.put('/transferencia', [validarCampos], transferencia)
 router.patch('/user', passwordPatch)
+router.post('/email', listEmail)
+
+router.get('/fav/:id', listFav)
+router.post('/fav', addFav)
+router.delete('/fav/:id', deleteFav)
 
 export default router
