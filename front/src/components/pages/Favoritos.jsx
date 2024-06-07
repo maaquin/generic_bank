@@ -1,13 +1,14 @@
 import { FavCard } from "../favoritos/FavCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useEmail, useAddFav } from "../../shared/hooks";
 import { LoadingSpinner } from "../LoadingSpinner";
 import Modal from "react-modal";
 
-export const Favoritos = ({ fav }) => {
+export const Favoritos = ({ fav, onFavUpdate }) => {
     const [inputValue, setInputValue] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [emailInput, setEmailInput] = useState('');
+    const [newFavAdded, setNewFavAdded] = useState(false);
 
     const { getUser, isFetching, user } = useEmail();
     const { addFav, isLoading } = useAddFav();
@@ -38,11 +39,19 @@ export const Favoritos = ({ fav }) => {
             console.log(userId)
             await addFav(userId);
             closeModal();
+            setNewFavAdded(true);
         }
     };
 
+    useEffect(() => {
+        if (newFavAdded) {
+            onFavUpdate();
+            setNewFavAdded(false);
+        }
+    }, [newFavAdded, onFavUpdate]);
+
     const filteredFav = fav.filter(favo =>
-        favo.user2.toLowerCase().includes(inputValue.toLowerCase())
+        favo.user2.nombre.toLowerCase().includes(inputValue.toLowerCase())
     );
 
     return (
@@ -81,7 +90,13 @@ export const Favoritos = ({ fav }) => {
                 className="Modal"
                 overlayClassName="Overlay"
             >
-                <h2>Agregar Usuario Favorito</h2>
+                <span className="btn-close" role="button" onClick={closeModal}>
+                    <i className="fa-solid fa-xmark" style={{ color: '#fff' }}></i>
+                </span>
+                <div className="modal-title-box">
+                    <h2>Agregar Usuario Favorito</h2>
+
+                </div>
                 <div className="input-fav-box">
                     <input
                         type="email"
@@ -112,7 +127,6 @@ export const Favoritos = ({ fav }) => {
                         </div>
                     ))
                 )}
-                <button onClick={closeModal}>Cerrar</button>
             </Modal>
         </>
     );

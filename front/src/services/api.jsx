@@ -117,6 +117,7 @@ export const addFav = async (data) => {
     }
 }
 export const deleteFav = async (id) => {
+    console.log(id)
     try{
         return await apiClient.delete(`/settings/fav/${id}`)
     }catch(e){

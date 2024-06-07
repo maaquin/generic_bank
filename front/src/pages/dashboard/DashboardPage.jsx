@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Navbar } from "../../components/navbars/Navbar";
 import { LoadingSpinner } from "../../components/LoadingSpinner";
 import { Content } from "../../components/dashboard/Content";
@@ -12,10 +12,15 @@ export const DashboardPage = () => {
     const { getFav, allFav, isFetching: isFavFetching } = useListFav();
     const { isLogged } = useUserDetails();
 
+    const [favUpdated, setFavUpdated] = useState(false);
+    const handleFavUpdate = () => {
+        setFavUpdated(!favUpdated);
+    };
+
     useEffect(() => {
         getCanjear(isLogged);
         getFav(isLogged);
-    }, []);
+    }, [favUpdated]);
 
     if (isCanjearFetching || isFavFetching) {
         return <LoadingSpinner />;
@@ -25,8 +30,8 @@ export const DashboardPage = () => {
         <div className="dashboard-container">
             <Navbar />
             <Content
-                canjear={allCanjear || []} getCanjear={getCanjear}
-                fav={allFav || []} getFav={getCanjear}
+                canjear={allCanjear || []}
+                fav={allFav || []} updateFav={handleFavUpdate}
             />
         </div>
     );

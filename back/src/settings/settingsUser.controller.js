@@ -113,16 +113,19 @@ export const passwordPatch = async (req, res) => {
     }
 }
 
-
-
 export const listFav = async (req, res) => {
     try {
-        const { id } = req.params
-        const fav = await Fav.find({user1: id});
-        return res.status(200).json(fav);
+        const { id } = req.params;
+        
+        const favs = await Fav.find({ user1: id }).populate({
+            path: 'user2',
+            select: 'nombre cuenta'
+        });
+
+        return res.status(200).json(favs);
     } catch (error) {
         console.error(error);
-        return res.status(500).send('Something went wrong');
+        return res.status(500).send('Algo salió mal');
     }
 };
 
@@ -146,13 +149,13 @@ export const addFav = async (req, res) => {
 
 export const deleteFav = async (req, res) => {
     try {
-
-        const { id } = req.parms;
+        const { id } = req.params;
+        console.log('id: ', id)
         const fav = await Fav.findByIdAndDelete(id);
+        console.log(fav)
         return res.status(200).json({
             fav
         });
-        
     } catch (e) {
         console.log(e);
         return res.status(500).send("No se pudo :(");

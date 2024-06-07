@@ -506,8 +506,88 @@ footer p {
     cursor: pointer;
 }
 
+.modal-title-box{
+    display: flex;
+    flex-direction: row;
+    color: #000;
+    margin-top: -20px;
+}
+
+.btn-close{
+    display: flex;
+    background-color: #d70606;
+    height: 25px;
+    width: 25px;
+    align-items: center;
+    border: solid 2px #d70606;
+    margin-top: -2px;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+    position: absolute;
+    right: 15px;
+}
+
+.btn-close:hover{
+    background-color: #920000;
+    border: solid 2px #920000;
+    cursor: pointer;
+}
+
+.btn-delete{
+    display: flex;
+    background-color: #d70606;
+    height: 25px;
+    width: 25px;
+    align-items: center;
+    justify-content: center;
+    border: solid 2px #d70606;
+    margin-top: -2px;
+    border-radius: 50px;
+    transition: all 0.5s ease;
+}
+
+.btn-delete:hover{
+    background-color: #920000;
+    border: solid 2px #920000;
+    cursor: pointer;
+    scale: 110%;
+}
+
+.btn-delete i{
+    scale: 50%;
+}
+
 .btn-buscar i{
     margin-left: 7px;
+}
+
+.btn-close i{
+    margin-left: 6.5px;
+}
+
+.fav-card{
+    width: 180%;
+    height: 40px;
+    font-size: 25px;
+    border: solid #c6c6c6;
+    border-radius: 24px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+.fav-car-title{
+    font-weight: 600;
+}
+
+.fa-user-tie {
+    scale: 150%;
+    margin-left: 15px;
+    margin-right: 15px;
 }
 
 .channels-img-container {
