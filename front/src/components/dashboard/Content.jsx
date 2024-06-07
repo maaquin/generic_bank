@@ -6,6 +6,7 @@ import { Home } from '../pages/Home';
 import { Cuentas } from '../pages/Cuenta';
 import { Divisa } from '../pages/Divisa';
 import { Transferencia } from '../pages/Transferencia';
+import { AgregarCuenta } from '../pages/agregaCuenta';
 
 export const Content = () => {
     return (
@@ -18,6 +19,7 @@ export const Content = () => {
                 <Route path="/cuentas" element={<Cuentas />} />
                 <Route path="/divisa" element={<Divisa />} />
                 <Route path="/transferencia" element={<Transferencia />} />
+                <Route path="/agregaCuenta" element={<AgregarCuenta />} />
             </Routes>
         </div>
     );

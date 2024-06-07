@@ -385,3 +385,24 @@ button:hover {
     margin-top: 15px;
   }
   
+  .info-item {
+    flex: 1;
+    padding: 10px;
+  }
+  
+  .info-item.info-header {
+    font-weight: bold;
+  }
+  
+  .cuenta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  } 
+  
+  .user-info-card {
+    margin-top: 20px;
+  }
+  

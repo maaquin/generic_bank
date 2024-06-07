@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Importa useNavigate
+import { useNavigate } from "react-router-dom";
 import { useExtraDetails } from "../../shared/hooks";
 import { LoadingSpinner } from "../LoadingSpinner";
 
 export const Cuentas = () => {
   const { isFetching, getExtraDetails, extraDetails } = useExtraDetails();
-  const navigate = useNavigate(); // Define useNavigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -15,7 +15,7 @@ export const Cuentas = () => {
   }, []);
 
   const handleTransferir = () => {
-    navigate('/transferencia'); // Navega a la ruta /transferencia
+    navigate('/transferencia');
   };
 
   if (isFetching) {
