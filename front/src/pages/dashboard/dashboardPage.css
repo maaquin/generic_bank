@@ -53,7 +53,7 @@
     height: 30px;
 }
 
-.nav-container.collapsed .nav-title{
+.nav-container.collapsed .nav-title {
     display: none;
 }
 
@@ -96,7 +96,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items:flex-start;
+    align-items: flex-start;
     width: 100%;
     margin-top: auto;
     margin-bottom: 25px;
@@ -143,7 +143,7 @@
     transition: left 0.3s, width 0.3s;
 }
 
-.nav-container.collapsed + .content-container {
+.nav-container.collapsed+.content-container {
     left: 60px;
     width: calc(100% - 60px);
 }
@@ -186,7 +186,7 @@ footer p {
     outline: none;
     border-color: #0b336b;
 }
- 
+
 .spinner-container {
     position: absolute;
     width: 100%;
@@ -212,11 +212,16 @@ footer p {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.buscador-box{
+.buscador-box {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -231,19 +236,19 @@ footer p {
     align-items: center;
 }
 
-.buscador-box i{
+.buscador-box i {
     color: #8f8f8f;
     margin-right: 5px;
 }
 
-.buscador{
+.buscador {
     border: none;
     width: 100%;
     margin-left: 5px;
     height: calc(100% - 7px);
 }
 
-.buscador:focus{
+.buscador:focus {
     outline: none;
 }
 
@@ -276,16 +281,15 @@ footer p {
     margin: 20px auto;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease
-    
 }
 
 .user-data .info-item {
     flex: 1;
     text-align: center;
     padding: 10px;
-    color: rgb(10, 10, 10); 
+    color: rgb(10, 10, 10);
     border: 2px solid #f5f1f1;
-    border-right: 1px solid #dddddd; 
+    border-right: 1px solid #dddddd;
 }
 
 
@@ -303,7 +307,7 @@ footer p {
 }
 
 .header-container .info-header {
-    color: #ffffff; 
+    color: #ffffff;
 }
 
 .user-data {
@@ -316,12 +320,12 @@ footer p {
     flex: 1;
     text-align: center;
     padding: 10px;
-    color: rgb(10, 10, 10); 
-    border-right: 1px solid #dddddd; 
+    color: rgb(10, 10, 10);
+    border-right: 1px solid #dddddd;
 }
 
 .info-header {
-    background-color: #2C5C8A; 
+    background-color: #2C5C8A;
 }
 
 .info-item p {
@@ -337,20 +341,20 @@ footer p {
 
 button {
     margin-left: 10px;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     background-color: #2C5C8A;
-    color: #000000;     
+    color: #000000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.753); 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.753);
 }
 
 button:hover {
-    background-color: #2C5C8A; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.548); 
-    color: #FFFFFF; 
+    background-color: #2C5C8A;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.548);
+    color: #FFFFFF;
     transform: scale(1.10);
 }
 
@@ -359,50 +363,87 @@ button:hover {
     flex-direction: column;
     align-items: center;
     height: 100vh;
-  }
-  
-  .titulo {
+}
+
+.titulo {
     margin-top: 20px;
     padding-bottom: 5px;
-  }
-  
-  .linea {
+}
+
+.linea {
     width: 100%;
-  }
-  
-  .cuadro {
+}
+
+.cuadro {
     background-color: #f5f5f5;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 10px;
-  }
-  
-  .texto {
+}
+
+.texto {
     margin-right: 10px;
-  }
-  
-  .cuadro .linea {
+}
+
+.cuadro .linea {
     margin-top: 15px;
-  }
-  
-  .info-item {
+}
+
+.info-item {
     flex: 1;
     padding: 10px;
-  }
-  
-  .info-item.info-header {
+    min-width: 100px;
+}
+
+.info-item.info-header {
     font-weight: bold;
-  }
-  
-  .cuenta {
+}
+
+.cuenta {
     display: flex;
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
     padding: 10px;
-  } 
-  
-  .user-info-card {
+    width: 100%;
+}
+
+.user-info-card {
     margin-top: 20px;
-  }
-  
+    width: 100%;
+}
+
+.transferencia-icon {
+    color: rgb(158, 27, 23) !important;
+}
+
+.cancelar-button {
+    color: #000000 !important;
+    background-color: #fffcfc !important;
+}
+
+.cancelar-button:hover {
+    color: #ebeaea !important;
+    background-color: #7E1A1A !important;
+}
+
+.transferir-button {
+    color: #000000 !important;
+    background-color: #feffff !important;
+}
+
+.transferir-button:hover {
+    color: #ffffff !important;
+    background-color: #2C5C8A !important;
+}
+
+
+.editar-button {
+    color: #000000 !important;
+    background-color: #fffcfc !important;
+}
+
+.editar-button:hover {
+    color: #ffffff !important;
+    background-color: #D1B31A !important;
+}

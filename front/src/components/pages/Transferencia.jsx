@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { AgregarCuenta } from './agregaCuenta';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
+import TransferIcon from '@mui/icons-material/TransferWithinAStation';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 
 export const Transferencia = () => {
   const [cuentasAgregadas, setCuentasAgregadas] = useState([]);
+  const [anchorEl, setAnchorEl] = useState(null);
   const navigate = useNavigate();
 
   const handleAgregarCuenta = () => {
@@ -14,13 +22,59 @@ export const Transferencia = () => {
     console.log("Transferir cuenta con índice:", index);
   };
 
+  const handleEliminar = (index) => {
+    const nuevasCuentas = cuentasAgregadas.filter((_, i) => i !== index);
+    setCuentasAgregadas(nuevasCuentas);
+  };
+
+  const handleEditar = (index) => {
+    console.log("Editar cuenta con índice:", index);
+  };
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const renderCuentaAgregada = (cuenta, index) => (
     <div className="cuenta" key={index}>
       <div className="info-item">{cuenta.numeroCuenta}</div>
       <div className="info-item">{cuenta.dpi}</div>
       <div className="info-item">{cuenta.alias}</div>
       <div className="info-item">
-        <button onClick={() => handleTransferir(index)}>Transferir</button>
+        <div>
+          <IconButton
+            aria-label="more"
+            aria-controls="long-menu"
+            aria-haspopup="true"
+            onClick={handleClick}
+            className="transferencia-icon"
+          >
+            <MoreVertIcon />
+          </IconButton>
+          <Menu
+            id="long-menu"
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)}
+            onClose={handleClose}
+          >
+            <MenuItem onClick={() => handleTransferir(index)} className="transferir-button">
+              <TransferIcon />
+              Transferir
+            </MenuItem>
+            <MenuItem onClick={() => handleEliminar(index)} className="cancelar-button">
+              <DeleteIcon />
+              Eliminar
+            </MenuItem>
+            <MenuItem onClick={() => handleEditar(index)} className="editar-button">
+              <EditIcon />
+              Editar
+            </MenuItem>
+          </Menu>
+        </div>
       </div>
     </div>
   );
