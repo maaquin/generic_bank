@@ -304,6 +304,7 @@ footer p {
     padding: 10px 0;
     background-color: #2C5C8A;
     border-radius: 5px 5px 0 0;
+    width: 100;
 }
 
 .header-container .info-header {
@@ -404,7 +405,6 @@ button:hover {
     align-items: center;
     justify-content: space-between;
     border-bottom: 1px solid #ccc;
-    padding: 10px;
     width: 100%;
 }
 
