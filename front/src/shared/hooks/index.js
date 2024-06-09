@@ -7,6 +7,7 @@ export { useUserDetails } from './user/useUserDetails'
 export { useChangePassword } from './user/useChangePassword'
 export { useUserSettings } from './user/useUserSettings'
 export { useEmail } from './user/useEmail'
+export { useListUsers } from './user/useListUsers'
 
 //Canjear
 export { useCanjear } from './canjear/useCanjear'

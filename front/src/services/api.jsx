@@ -94,6 +94,16 @@ export const email = async (data) => {
         }
     }
 }
+export const users = async () => {
+    try{
+        return await apiClient.get('/settings/user')
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
 
 //fav
 export const listFav = async (id) => {

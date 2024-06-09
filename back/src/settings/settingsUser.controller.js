@@ -35,7 +35,7 @@ export const getUserSetting = async (req, res) => {
 
         return res.status(200).json({
             id: userData.id,
-            nombre: userData.name,
+            nombre: userData.nombre,
             username: userData.username,
             email: userData.email,
             role: userData.role,

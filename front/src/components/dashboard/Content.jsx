@@ -7,12 +7,12 @@ import { Transferencia } from '../pages/Transferencia';
 import { Divisa } from '../pages/Divisa';
 import { CanjearView } from "../canjear/CanjearView.jsx";
 
-export const Content = ({ canjear, fav, updateFav }) => {
+export const Content = ({ canjear, fav, updateFav, user }) => {
 
     return (
         <div className="content-container">
             <Routes>
-                <Route path="/" element={<Home/>}/>
+                <Route path="/" element={<Home usuarios={user} onUserUpdate={updateFav} />}/>
                 <Route path="/settings" element={<Settings/>}/>
                 <Route path="/canjear" element={<Canjear canjear={canjear} />} />
                 <Route path="/canjear/:id" element={<CanjearView/>}/>

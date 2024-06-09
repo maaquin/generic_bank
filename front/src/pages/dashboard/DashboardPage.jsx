@@ -2,14 +2,16 @@ import { useEffect, useState } from "react";
 import { Navbar } from "../../components/navbars/Navbar";
 import { LoadingSpinner } from "../../components/LoadingSpinner";
 import { Content } from "../../components/dashboard/Content";
-import { useCanjear, useUserDetails, useListFav } from "../../shared/hooks";
+import { useCanjear, useUserDetails, useListFav, useListUsers } from "../../shared/hooks";
 
 import "./dashboardPage.css";
+import './css/home.css';
 
 export const DashboardPage = () => {
 
     const { getCanjear, allCanjear, isFetching: isCanjearFetching } = useCanjear();
     const { getFav, allFav, isFetching: isFavFetching } = useListFav();
+    const { getUser, allUser, isFetching: isUserFetching } = useListUsers();
     const { isLogged } = useUserDetails();
 
     const [favUpdated, setFavUpdated] = useState(false);
@@ -20,9 +22,10 @@ export const DashboardPage = () => {
     useEffect(() => {
         getCanjear(isLogged);
         getFav(isLogged);
+        getUser(isLogged);
     }, [favUpdated]);
 
-    if (isCanjearFetching || isFavFetching) {
+    if (isCanjearFetching || isFavFetching || isUserFetching) {
         return <LoadingSpinner />;
     }
 
@@ -32,6 +35,7 @@ export const DashboardPage = () => {
             <Content
                 canjear={allCanjear || []}
                 fav={allFav || []} updateFav={handleFavUpdate}
+                user={allUser || []}
             />
         </div>
     );
