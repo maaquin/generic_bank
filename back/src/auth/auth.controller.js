@@ -41,7 +41,20 @@ export const firstAdmin = async (req, res) => {
 
     const username = 'ADMINB';
     const password = 'ADMINB';
-    const email = 'adminb@email.com'
+    const email = 'adminb@email.com';
+    const role = 'ADMIN_ROLE';
+    const dpi = '1234567890101';
+    const nombre = 'admin';
+    const direccion = 'el trabajo';
+    const telefono = '12345678';
+    const trabajo = 'ser admin';
+    const ingresos = '1000000';
+    const monto = '101';
+    const cuenta = 'admin';
+    const cuentaAhorro = 'admin';
+    const cuentaCredito = 'admin';
+    const montoAhorro = '101';
+    const montoCredito = '101';
 
     const userExist = await User.find({ email: email });
 
@@ -54,7 +67,20 @@ export const firstAdmin = async (req, res) => {
 
     const user = await User.create({
       username,
+      dpi,
+      nombre,
+      direccion,
+      telefono,
+      trabajo,
+      ingresos,
+      monto,
+      cuenta,
+      cuentaAhorro,
+      cuentaCredito,
+      montoAhorro,
+      montoCredito,
       email: email.toLowerCase(),
+      role,
       password: encryptedPassword,
     });
 
