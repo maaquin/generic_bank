@@ -13,18 +13,24 @@ export const AuthPage = () => {
     setIsLogin((prev) => !prev)
   }
   return (
-    <div className="container">
+    <div>
       <Routes>
         <Route path="/" element={
-          <div className="auth-container">
-            {isLogin ? (
-              <Login switchAuthHandler={handlerAuthPageToggle} />
-            ) : (
-              <Register switchAuthHandler={handlerAuthPageToggle} />
-            )}
+          <div className="container">
+            <div className="auth-container">
+              {isLogin ? (
+                <Login switchAuthHandler={handlerAuthPageToggle} />
+              ) : (
+                <Register switchAuthHandler={handlerAuthPageToggle} />
+              )}
+            </div>
           </div>
         } />
-      <Route path="/continuar" element={<Continuar/>}/>
+        <Route path="/continuar" element={
+          <div className="container-extra">
+            <Continuar />
+          </div>}
+          />
       </Routes>
     </div>
   )

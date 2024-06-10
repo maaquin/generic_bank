@@ -66,7 +66,10 @@ export const extra = async (data) => {
         };
     }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> developer
 export const putUserSettings = async (data) => {
     try{
         return await apiClient.put('/settings/user', data)
@@ -97,4 +100,84 @@ export const patchChangePassword = async (data) => {
         }
     }
 }
+export const email = async (data) => {
+    try{
+        return await apiClient.post('/settings/email', data)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+export const users = async () => {
+    try{
+        return await apiClient.get('/settings/user')
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
 
+//fav
+export const listFav = async (id) => {
+    try{
+        return await apiClient.get(`/settings/fav/${id}`)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+export const addFav = async (data) => {
+    try{
+        return await apiClient.post('/settings/fav', data)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+export const deleteFav = async (id) => {
+    console.log(id)
+    try{
+        return await apiClient.delete(`/settings/fav/${id}`)
+    }catch(e){
+        return{
+            error: true,
+            e
+        }
+    }
+}
+
+// Producto
+export const getCanjear = async () => {
+    try {
+        return await apiClient.get('/product', {
+            headers: {
+                'Cache-Control': 'no-cache'
+            }
+        });
+    } catch (e) {
+        console.log(e);
+        return {
+            error: true,
+            e
+        };
+    }
+};
+
+export const getCanjearDetails = async (productId) => {
+    try {
+        return await apiClient.get(`/product/${productId}`);
+    } catch (e) {
+        return {
+            error: true,
+            e
+        };
+    }
+};

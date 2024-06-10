@@ -77,7 +77,12 @@ export const Login = ({ switchAuthHandler }) => {
                         type='text'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-envelope"></i>
+                    {formState.email.showError && !formState.email.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.email.showError && (
+                        <i className="fa-solid fa-envelope"></i>
+                    )}
                 </div>
                 <div className="input-box">
                     <Input
@@ -89,13 +94,18 @@ export const Login = ({ switchAuthHandler }) => {
                         type='password'
                         onBlurHandler={handleInputValidationOnBlur}
                     />
-                    <i className="fa-solid fa-lock"></i>
+                    {formState.password.showError && !formState.password.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.password.showError && (
+                        <i className="fa-solid fa-lock"></i>
+                    )}
                 </div>
                 <button onClick={handleLogin} disabled={isSubmitButtonDisable} className="login__button">
                     Log in
                 </button>
                 <div onClick={switchAuthHandler} className="auth-form-switch-label">
-                    Don't have an acount? register now!
+                    Don't have an account? register now!
                 </div>
             </form>
         </div>

@@ -12,7 +12,11 @@ export const useContinuar = () => {
 
     const navigate = useNavigate()
 
+<<<<<<< HEAD
     const continuar = async( dpi, nombre, direccion, telefono, trabajo, ingresos, monto ) => {
+=======
+    const continuar = async( dpi, nombre, direccion, telefono, trabajo, ingresos, monto, cuenta, montoAhorro, montoCredito) => {
+>>>>>>> developer
         const response = await continuarRequest({
             email, 
             dpi, 
@@ -21,7 +25,10 @@ export const useContinuar = () => {
             telefono, 
             trabajo, 
             ingresos, 
-            monto
+            monto,
+            cuenta,
+            montoAhorro,
+            montoCredito,
         })
 
         setIsLoading(false)

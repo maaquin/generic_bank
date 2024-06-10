@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import { useNavigate } from "react-router-dom";
 import { AgregarCuenta } from './agregaCuenta';
 import IconButton from '@mui/material/IconButton';
@@ -31,6 +32,12 @@ export const Transferencia = () => {
     setAnchorEl({});
   };
   
+=======
+
+export const Transferencia = () => {
+  const [anchorEl, setAnchorEl] = useState({});
+
+>>>>>>> developer
   const handleClick = (event, index) => {
     setAnchorEl({ [index]: event.currentTarget });
   };
@@ -39,6 +46,7 @@ export const Transferencia = () => {
     setAnchorEl({ [index]: null });
   };
 
+<<<<<<< HEAD
   const renderCuentaAgregada = (cuenta, index, color) => (
     <div className="cuenta" key={index} style={{ backgroundColor: color }}>
       <div className="info-item">{cuenta.numeroCuenta}</div>
@@ -73,10 +81,36 @@ export const Transferencia = () => {
               Editar
             </MenuItem>
           </Menu>
+=======
+  const handleTransferir = (index) => {
+    console.log("Transferir cuenta con índice:", index);
+  };
+
+  const handleEliminar = (index) => {
+    console.log("Eliminar cuenta con índice:", index);
+    setAnchorEl({});
+  };
+  
+  return (
+    <div className="centrado">
+      <h2 className="titulo">Transferencias</h2>
+      <hr className="linea" />
+      <div className="barra"></div>
+      <div className="cuentas-agregadas">
+        <h3>Cuentas agregadas</h3>
+        <div className="user-info-card">
+          <div className="header-container">
+            <div className="info-item info-header">No. Cuenta</div>
+            <div className="info-item info-header">DPI</div>
+            <div className="info-item info-header">Alias</div>
+            <div className="info-item info-header">Opciones</div>
+          </div>
+>>>>>>> developer
         </div>
       </div>
     </div>
   );
+<<<<<<< HEAD
 
   const renderCuentasAgregadas = () => {
     let color = '#ffffff'; 
@@ -108,4 +142,6 @@ export const Transferencia = () => {
       </div>
     </div>
   );
+=======
+>>>>>>> developer
 };
