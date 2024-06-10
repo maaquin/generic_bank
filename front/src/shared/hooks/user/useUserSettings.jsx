@@ -17,7 +17,7 @@ export const useUserSettings = () => {
             )
         }
         setUser(response.data)
-        
+        console.log(user)
         setUserSettings({
             username: response.data.username,
             email: response.data.email,

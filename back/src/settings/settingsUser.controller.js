@@ -44,7 +44,9 @@ export const getUserSetting = async (req, res) => {
             direccion: userData.direccion,
             telefono: userData.telefono,
             trabajo: userData.trabajo,
-            monto: userData.monto
+            monto: userData.monto,
+            cuentaAhorro: userData.cuentaAhorro,
+            cuentaCredito: userData.cuentaCredito
         })
     } catch (e) {
         return res.status(500).send('Something went wrong')
@@ -113,8 +115,6 @@ export const passwordPatch = async (req, res) => {
     }
 }
 
-<<<<<<< HEAD
-=======
 export const listFav = async (req, res) => {
     try {
         const { id } = req.params;
@@ -164,7 +164,6 @@ export const deleteFav = async (req, res) => {
     }
 };
 
->>>>>>> developer
 export const getAdditionalUserInfo = async (req, res) => {
     try {
 

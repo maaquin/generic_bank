@@ -10,6 +10,8 @@ export const Favoritos = ({ fav, onFavUpdate }) => {
     const [emailInput, setEmailInput] = useState('');
     const [newFavAdded, setNewFavAdded] = useState(false);
 
+    console.log(fav)
+
     const { getUser, isFetching, user } = useEmail();
     const { addFav, isLoading } = useAddFav();
 

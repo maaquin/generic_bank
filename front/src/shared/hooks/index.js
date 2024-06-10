@@ -6,12 +6,9 @@ export { useLogout } from './user/useLogout'
 export { useUserDetails } from './user/useUserDetails'
 export { useChangePassword } from './user/useChangePassword'
 export { useUserSettings } from './user/useUserSettings'
-<<<<<<< HEAD
 export { useExtraDetails } from './user/useDetailsExtra'
-=======
 export { useEmail } from './user/useEmail'
 export { useListUsers } from './user/useListUsers'
-export { useExtraDetails } from './user/useDetailsExtra'
 
 //Canjear
 export { useCanjear } from './canjear/useCanjear'
@@ -21,4 +18,3 @@ export { useCanjearDetails } from './canjear/useCanjearDetails'
 export { useListFav } from './fav/useListFav'
 export { useDeleteFav } from './fav/useDeleteFav'
 export { useAddFav } from './fav/useAddFav'
->>>>>>> developer

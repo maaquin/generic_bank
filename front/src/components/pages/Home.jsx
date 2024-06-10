@@ -89,15 +89,15 @@ export const Home = ({ usuarios, onUserUpdate }) => {
                                 <div className="monetaria">
                                     <div className='cuenta-box'>
                                         <div className="cuenta-title">Monto ahorro</div>
-                                        <div className="cuenta">{user.cuenta}</div>
+                                        <div className="cuenta">{user.cuentaAhorro.numeroCuenta}</div>
                                     </div>
-                                    <div className="balance">{user.monto} Q</div>
+                                    <div className="balance">{user.cuentaAhorro.monto} Q</div>
                                 </div>
                             </div>
                             <div className="card">
                                 <div className="card-title">Credit card</div>
-                                <div className="balance">{user.monto} Q</div>
-                                <div className="card-number">{user.cuenta}</div>
+                                <div className="balance">{user.cuentaCredito.monto} Q</div>
+                                <div className="card-number">{user.cuentaCredito.numeroCuenta}</div>
                             </div>
                         </>
                     ) : (

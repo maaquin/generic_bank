@@ -29,6 +29,7 @@ export const register = async (data) => {
     }
 }
 export const continuar = async (data) => {
+    console.log(data)
     try{
         return await apiClient.put('/auth/continuar', data)
     }catch(e){
@@ -66,10 +67,6 @@ export const extra = async (data) => {
         };
     }
 }
-<<<<<<< HEAD
-
-=======
->>>>>>> developer
 export const putUserSettings = async (data) => {
     try{
         return await apiClient.put('/settings/user', data)

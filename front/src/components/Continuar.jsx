@@ -104,6 +104,8 @@ export const Continuar = () => {
         }));
     };
 
+    console.log(formState.montoCredito.value)
+
     const handleContinuar = (event) => {
         event.preventDefault();
 

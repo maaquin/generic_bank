@@ -14,6 +14,8 @@ export const DashboardPage = () => {
     const { getUser, allUser, isFetching: isUserFetching } = useListUsers();
     const { isLogged } = useUserDetails();
 
+    console.log(allFav)
+
     const [favUpdated, setFavUpdated] = useState(false);
     const handleFavUpdate = () => {
         setFavUpdated(!favUpdated);
