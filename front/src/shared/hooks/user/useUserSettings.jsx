@@ -7,7 +7,6 @@ export const useUserSettings = () => {
     const [user, setUser] = useState()
     const userId = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null;
 
-
     const fetchUserSettings = async () => {
         const response = await getUserSetting({userId})
         if(response.error){
@@ -17,7 +16,7 @@ export const useUserSettings = () => {
             )
         }
         setUser(response.data)
-        
+        console.log(user)
         setUserSettings({
             username: response.data.username,
             email: response.data.email,
@@ -39,14 +38,15 @@ export const useUserSettings = () => {
     }
 
     useEffect(() =>{
+        if (!userId) return;
         fetchUserSettings()
-    }, [])
+    }, [userId])
 
-  return {
-    isFetching: !userSettings,
-    fetching: !user,
-    userSettings,
-    user,
-    saveSettings
-  }
+    return {
+        isFetching: !userSettings,
+        fetching: !user,
+        userSettings,
+        user,
+        saveSettings
+    }
 }

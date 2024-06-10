@@ -48,14 +48,14 @@ export const Divisa = () => {
             JPY: 'Yen japonés',
             CHF: 'Franco suizo'
         };
-    
+
         const labels = Object.keys(currencies).map(currency => `${currencies[currency]}`); // Etiquetas para el gráfico
         const data = Object.keys(currencies).map(currency => 1 / conversionRates[currency]); // Datos de las tasas de conversión invertidas
-    
+
         if (chartRef.current) {
             const ctx = chartRef.current.getContext('2d');
             new Chart(ctx, {
-                type: 'line', 
+                type: 'line',
                 data: {
                     labels: labels,
                     datasets: [{
@@ -76,40 +76,42 @@ export const Divisa = () => {
             });
         }
     };
-    
-      
-    
-    return (
-    <div className="divisa-container">
-        <h2 className="divisa-header">Conversor de Divisas</h2>
-        <div className="divisa-input-container">
-            <input type="number" value={amount} onChange={handleAmountChange} className="divisa-input" />
-            <select value={fromCurrency} onChange={handleFromCurrencyChange} className="divisa-select">
-                <option value="GTQ">Quetzal guatemalteco</option>
-                <option value="USD">Dólar estadounidense</option>
-                <option value="GBP">Libra esterlina</option>
-                <option value="EUR">Euro</option>
-                <option value="JPY">Yen japonés</option>
-                <option value="CHF">Franco suizo</option>
-            </select>
-            <span className="divisa-arrow">⬌ </span>
-            <select value={toCurrency} onChange={handleToCurrencyChange} className="divisa-select">
-                <option value="USD">Dólar estadounidense</option>
-                <option value="GTQ">Quetzal guatemalteco</option>
-                <option value="GBP">Libra esterlina</option>
-                <option value="EUR">Euro</option>
-                <option value="JPY">Yen japonés</option>
-                <option value="CHF">Franco suizo</option>
-            </select>
-        </div>
-        <div className="divisa-result">
-            <p>{amount} {fromCurrency} = {convertedAmount} {toCurrency}</p>
-        </div>
-        <div className="divisa-chart-container">
-            <canvas ref={chartRef} className="divisa-chart" style={{ width: '700px', height: '400px' }} />
-        </div>
-    </div>
-);
 
-    
+
+
+    return (
+        <div className="divisa-box">
+            <div className="divisa-container">
+                <h2 className="divisa-header">Conversor de Divisas</h2>
+                <div className="divisa-input-container">
+                    <input type="number" value={amount} onChange={handleAmountChange} className="divisa-input" />
+                    <select value={fromCurrency} onChange={handleFromCurrencyChange} className="divisa-select">
+                        <option value="GTQ">Quetzal guatemalteco</option>
+                        <option value="USD">Dólar estadounidense</option>
+                        <option value="GBP">Libra esterlina</option>
+                        <option value="EUR">Euro</option>
+                        <option value="JPY">Yen japonés</option>
+                        <option value="CHF">Franco suizo</option>
+                    </select>
+                    <span className="divisa-arrow">⬌ </span>
+                    <select value={toCurrency} onChange={handleToCurrencyChange} className="divisa-select">
+                        <option value="USD">Dólar estadounidense</option>
+                        <option value="GTQ">Quetzal guatemalteco</option>
+                        <option value="GBP">Libra esterlina</option>
+                        <option value="EUR">Euro</option>
+                        <option value="JPY">Yen japonés</option>
+                        <option value="CHF">Franco suizo</option>
+                    </select>
+                </div>
+                <div className="divisa-result">
+                    <p>{amount} {fromCurrency} = {convertedAmount} {toCurrency}</p>
+                </div>
+                <div className="divisa-chart-container">
+                    <canvas ref={chartRef} className="divisa-chart" style={{ width: '700px', height: '400px' }} />
+                </div>
+            </div>
+        </div>
+    );
+
+
 };

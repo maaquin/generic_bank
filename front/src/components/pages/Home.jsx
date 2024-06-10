@@ -30,6 +30,7 @@ export const Home = (usuarios, onUserUpdate) => {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const { isLogged } = useUserDetails();
     const { user, fetching } = useUserSettings();
+    const userId = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null;
     const navigate = useNavigate();
 
     const handleUserTypeSelection = (userType) => {
@@ -53,13 +54,15 @@ export const Home = (usuarios, onUserUpdate) => {
         setEmailInput('');
     };
 
-    if (fetching) {
+    if (userId && fetching) {
         return <LoadingSpinner />;
     }
 
     const filteredUser = usuarios.usuarios.filter(use =>
         use.nombre.toLowerCase().includes(inputValue.toLowerCase())
     );
+
+    console.log(user)
 
     return (
         <div className="home-container">
@@ -89,16 +92,16 @@ export const Home = (usuarios, onUserUpdate) => {
                                 </div>
                                 <div className="monetaria">
                                     <div className='cuenta-box'>
-                                        <div className="cuenta-title">Monto ahorro</div>
-                                        <div className="cuenta">{user.cuenta}</div>
+                                        <div className="cuenta-title">Monto ahorrado</div>
+                                        <div className="cuenta">{user.cuentaAhorro.numeroCuenta}</div>
                                     </div>
-                                    <div className="balance">{user.monto} Q</div>
+                                    <div className="balance">{user.cuentaAhorro.monto} Q</div>
                                 </div>
                             </div>
                             <div className="card">
                                 <div className="card-title">Credit card</div>
-                                <div className="balance">{user.monto} Q</div>
-                                <div className="card-number">{user.cuenta}</div>
+                                <div className="balance">{user.cuentaCredito.monto} Q</div>
+                                <div className="card-number">{user.cuentaCredito.numeroCuenta}</div>
                             </div>
                         </>
                     ) : (

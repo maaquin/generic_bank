@@ -44,7 +44,9 @@ export const getUserSetting = async (req, res) => {
             direccion: userData.direccion,
             telefono: userData.telefono,
             trabajo: userData.trabajo,
-            monto: userData.monto
+            monto: userData.monto,
+            cuentaAhorro: userData.cuentaAhorro,
+            cuentaCredito: userData.cuentaCredito
         })
     } catch (e) {
         return res.status(500).send('Something went wrong')
@@ -159,5 +161,29 @@ export const deleteFav = async (req, res) => {
     } catch (e) {
         console.log(e);
         return res.status(500).send("No se pudo :(");
+    }
+};
+
+export const getAdditionalUserInfo = async (req, res) => {
+    try {
+
+        const { userId } = req.body;
+        console.log(userId)
+
+        const userData = await User.findById(userId)
+
+        if (!userData) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        console.log(userData.monto)
+
+        return res.status(200).json({
+            userData
+        })
+
+    } catch (error) {
+        console.error('Error al obtener la información adicional del usuario:', error);
+        res.status(500).json({ message: 'Error del servidor' });
     }
 };

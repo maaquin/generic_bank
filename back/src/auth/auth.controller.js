@@ -18,12 +18,13 @@ export const register = async (req, res) => {
     const user = await User.create({
       username,
       email: email.toLowerCase(),
-      password: encryptedPassword
+      password: encryptedPassword,
     });
 
     return res.status(200).json({
       msg: "Usuario registrado. Revisa tu correo para confirmar tu cuenta.",
       userDetails: {
+        id: user.id,
         user: user.username,
         email: user.email,
         id: user.id
@@ -35,37 +36,80 @@ export const register = async (req, res) => {
   }
 };
 
+const generarNumeroCuenta = () => {
+  return Math.floor(1000000000 + Math.random() * 9000000000).toString(); 
+};
+
 export const continuar = async (req, res) => {
   try {
-    const { email, dpi, nombre, direccion, telefono, trabajo, ingresos, monto } = req.body;
+    const {
+      email,
+      dpi,
+      nombre,
+      direccion,
+      telefono,
+      trabajo,
+      ingresos,
+      monto,
+      montoAhorro,
+      montoCredito,
+    } = req.body;
 
-    const users = await User.find({ email: email });
-    if (users.length > 0) {
-      const user = users[0];
-      const userId = user._id;
-      console.log('usuario', user);
-      console.log('id', userId);
+    const cuenta = generarNumeroCuenta();
+    const cuentaAhorro = generarNumeroCuenta();
+    const cuentaCredito = generarNumeroCuenta();
 
-      const actualizaciones = {
-        email: email, dpi: dpi, nombre: nombre, direccion: direccion,
-        telefono: telefono, trabajo: trabajo, ingresos: ingresos, monto: monto,
-      };
-      const usuarioActualizado = await User.findByIdAndUpdate(userId, actualizaciones, { new: true });
-      console.log(usuarioActualizado)
+    let usuarioExistente = await User.findOne({ email });
 
-      res.status(200).json({
-        msg: 'buenasa',
-        usuario_nuevo: usuarioActualizado.usuario
+
+    if (usuarioExistente) {
+      usuarioExistente.dpi = dpi;
+      usuarioExistente.nombre = nombre;
+      usuarioExistente.direccion = direccion;
+      usuarioExistente.telefono = telefono;
+      usuarioExistente.trabajo = trabajo;
+      usuarioExistente.ingresos = ingresos;
+      usuarioExistente.monto = monto;
+      usuarioExistente.cuenta = cuenta;
+      usuarioExistente.cuentaAhorro = { numeroCuenta: cuentaAhorro, monto };
+      usuarioExistente.cuentaCredito = { numeroCuenta: cuentaCredito, monto };
+      usuarioExistente.cuentaAhorro.monto = montoAhorro;
+      usuarioExistente.cuentaCredito.monto = montoCredito;
+
+
+      usuarioExistente = await usuarioExistente.save();
+
+      return res.status(200).json({
+        msg: "Usuario actualizado exitosamente",
+        usuario: usuarioExistente,
       });
     } else {
-      console.log('No user found with the provided email.');
-    }
+      const nuevoUsuario = new User({
+        email,
+        dpi,
+        nombre,
+        direccion,
+        telefono,
+        trabajo,
+        ingresos,
+        monto,
+        cuenta,
+        cuentaAhorro: { numeroCuenta: cuentaAhorro, monto },
+        cuentaCredito: { numeroCuenta: cuentaCredito, monto }
+      });
 
-  } catch (e) {
-    console.log(e);
+      const usuarioGuardado = await nuevoUsuario.save();
+
+      return res.status(200).json({
+        msg: "Usuario creado exitosamente",
+        usuario: usuarioGuardado,
+      });
+    }
+  } catch (error) {
+    console.log(error);
     return res.status(500).send("No se pudo registrar el usuario");
   }
-}
+};
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
@@ -75,14 +119,14 @@ export const login = async (req, res) => {
     const user = await User.findOne({ email: email.toLowerCase() });
 
     if (user && (await bcryptjs.compare(password, user.password))) {
-      const token = await generarJWT(user.id, user.email)
+      const token = await generarJWT(user.id, user.email);
 
       res.status(200).json({
         msg: "Login Ok!!!",
         userDetails: {
           email: user.email,
           id: user.id,
-          token: token
+          token: token,
         },
       });
     }
@@ -98,9 +142,7 @@ export const login = async (req, res) => {
     if (!validPassword) {
       return res.status(400).send("wrong password");
     }
-
   } catch (e) {
     res.status(500).send("Comuniquese con el administrador");
   }
 };
-

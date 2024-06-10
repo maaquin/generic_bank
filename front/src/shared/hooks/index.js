@@ -8,6 +8,7 @@ export { useChangePassword } from './user/useChangePassword'
 export { useUserSettings } from './user/useUserSettings'
 export { useEmail } from './user/useEmail'
 export { useListUsers } from './user/useListUsers'
+export { useExtraDetails } from './user/useDetailsExtra'
 
 //Canjear
 export { useCanjear } from './canjear/useCanjear'

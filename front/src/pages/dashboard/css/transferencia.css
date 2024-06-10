@@ -1,0 +1,194 @@
+.cuentas-container {
+    padding: 20px;
+}
+
+.barra-superior {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-bottom: 1px solid #636161;
+}
+
+.info-adicional {
+    margin-top: 20px;
+}
+
+.usuario-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(12, 12, 12, 0.1);
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+}
+
+.user-data .info-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    color: rgb(10, 10, 10);
+    border: 2px solid #f5f1f1;
+    border-right: 1px solid #dddddd;
+}
+
+
+.user-info-card:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    background-color: #2C5C8A;
+    border-radius: 5px 5px 0 0;
+    width: 100;
+}
+
+.header-container .info-header {
+    color: #ffffff;
+}
+
+.user-data {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+
+.info-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    color: rgb(10, 10, 10);
+    border-right: 1px solid #dddddd;
+}
+
+.info-header {
+    background-color: #2C5C8A;
+}
+
+.info-item p {
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #2C5C8A;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.753);
+}
+
+button:hover {
+    background-color: #2C5C8A;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.548);
+    color: #FFFFFF;
+    transform: scale(1.10);
+}
+
+.centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.titulo {
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+
+.linea {
+    width: 100%;
+}
+
+.cuadro {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.texto {
+    margin-right: 10px;
+}
+
+.cuadro .linea {
+    margin-top: 15px;
+}
+
+.info-item {
+    flex: 1;
+    padding: 10px;
+    min-width: 100px;
+}
+
+.info-item.info-header {
+    font-weight: bold;
+}
+
+.cuenta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.user-info-card {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.transferencia-icon {
+    color: rgb(158, 27, 23) !important;
+}
+
+.cancelar-button {
+    color: #000000 !important;
+    background-color: #fffcfc !important;
+}
+
+.cancelar-button:hover {
+    color: #ebeaea !important;
+    background-color: #7E1A1A !important;
+}
+
+.transferir-button {
+    color: #000000 !important;
+    background-color: #feffff !important;
+}
+
+.transferir-button:hover {
+    color: #ffffff !important;
+    background-color: #2C5C8A !important;
+}
+
+
+.editar-button {
+    color: #000000 !important;
+    background-color: #fffcfc !important;
+}
+
+.editar-button:hover {
+    color: #ffffff !important;
+    background-color: #D1B31A !important;
+}

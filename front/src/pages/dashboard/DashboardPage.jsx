@@ -6,6 +6,8 @@ import { useCanjear, useUserDetails, useListFav, useListUsers } from "../../shar
 
 import "./dashboardPage.css";
 import './css/home.css';
+import './css/divisa.css';
+import './css/transferencia.css'
 
 export const DashboardPage = () => {
 
