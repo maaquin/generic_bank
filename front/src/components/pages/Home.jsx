@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
-import { UserCard } from '../usuarios/UserCard'
+import { UserCard } from '../usuarios/UserCard';
 import { useUserDetails, useUserSettings } from "../../shared/hooks";
 import { LoadingSpinner } from '../LoadingSpinner';
 import { useNavigate } from "react-router-dom";
@@ -24,8 +24,8 @@ const getGreeting = () => {
     }
 };
 
-export const Home = (usuarios, onUserUpdate) => {
-    console.log(usuarios)
+export const Home = ({ usuarios, onUserUpdate }) => {
+    console.log(usuarios);
     const [inputValue, setInputValue] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const { isLogged } = useUserDetails();
@@ -50,15 +50,14 @@ export const Home = (usuarios, onUserUpdate) => {
 
     const closeModal = () => {
         setModalIsOpen(false);
-        setEmailInput('');
     };
 
     if (fetching) {
         return <LoadingSpinner />;
     }
 
-    const filteredUser = usuarios.usuarios.filter(use =>
-        use.nombre.toLowerCase().includes(inputValue.toLowerCase())
+    const filteredUser = usuarios?.filter(use =>
+        use.nombre?.toLowerCase().includes(inputValue.toLowerCase())
     );
 
     return (
@@ -120,7 +119,7 @@ export const Home = (usuarios, onUserUpdate) => {
                                     <button className="add-btn" onClick={openModal}>
                                         Add user <i className="fa-solid fa-user-plus"></i>
                                     </button>
-                                    {filteredUser.length > 0 ? (
+                                    {filteredUser && filteredUser.length > 0 ? (
                                         filteredUser.map((favo, index) => (
                                             <UserCard key={index} data={favo} />
                                         ))
@@ -141,7 +140,6 @@ export const Home = (usuarios, onUserUpdate) => {
                             </Modal>
                         </>
                     )}
-
                 </>
             )}
         </div>

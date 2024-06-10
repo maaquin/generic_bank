@@ -35,37 +35,86 @@ export const register = async (req, res) => {
   }
 };
 
+const generarNumeroCuenta = () => {
+  return Math.floor(1000000000 + Math.random() * 9000000000).toString(); 
+};
+
 export const continuar = async (req, res) => {
   try {
-    const { email, dpi, nombre, direccion, telefono, trabajo, ingresos, monto } = req.body;
+    const {
+      email,
+      dpi,
+      nombre,
+      direccion,
+      telefono,
+      trabajo,
+      ingresos,
+      monto,
+      montoAhorro,
+      montoCredito,
+    } = req.body;
 
-    const users = await User.find({ email: email });
-    if (users.length > 0) {
-      const user = users[0];
-      const userId = user._id;
-      console.log('usuario', user);
-      console.log('id', userId);
-
-      const actualizaciones = {
-        email: email, dpi: dpi, nombre: nombre, direccion: direccion,
-        telefono: telefono, trabajo: trabajo, ingresos: ingresos, monto: monto,
-      };
-      const usuarioActualizado = await User.findByIdAndUpdate(userId, actualizaciones, { new: true });
-      console.log(usuarioActualizado)
-
-      res.status(200).json({
-        msg: 'buenasa',
-        usuario_nuevo: usuarioActualizado.usuario
-      });
-    } else {
-      console.log('No user found with the provided email.');
+    if (!email || !dpi || !nombre || !direccion || !telefono || !trabajo || !ingresos || !monto || !montoAhorro || !montoCredito) {
+      return res.status(400).json({ msg: "Todos los campos son obligatorios" });
     }
 
-  } catch (e) {
-    console.log(e);
+    const cuenta = generarNumeroCuenta();
+    const cuentaAhorro = generarNumeroCuenta();
+    const cuentaCredito = generarNumeroCuenta();
+
+    let usuarioExistente = await User.findOne({ email });
+
+    if (usuarioExistente) {
+      usuarioExistente.dpi = dpi;
+      usuarioExistente.nombre = nombre;
+      usuarioExistente.direccion = direccion;
+      usuarioExistente.telefono = telefono;
+      usuarioExistente.trabajo = trabajo;
+      usuarioExistente.ingresos = ingresos;
+      usuarioExistente.monto = monto;
+      usuarioExistente.cuenta = cuenta;
+      usuarioExistente.montoAhorro = montoAhorro;
+      usuarioExistente.cuentaAhorro = cuentaAhorro;
+      usuarioExistente.montoCredito = montoCredito;
+      usuarioExistente.cuentaCredito = cuentaCredito;
+
+      usuarioExistente = await usuarioExistente.save();
+
+      return res.status(200).json({
+        msg: "Usuario actualizado exitosamente",
+        usuario: usuarioExistente,
+      });
+    } else {
+      const nuevoUsuario = new User({
+        email,
+        dpi,
+        nombre,
+        direccion,
+        telefono,
+        trabajo,
+        ingresos,
+        monto,
+        cuenta,
+        montoAhorro,
+        cuentaAhorro,
+        montoCredito,
+        cuentaCredito,
+      });
+
+      const usuarioGuardado = await nuevoUsuario.save();
+
+      return res.status(200).json({
+        msg: "Usuario creado exitosamente",
+        usuario: usuarioGuardado,
+      });
+    }
+  } catch (error) {
+    console.log(error);
     return res.status(500).send("No se pudo registrar el usuario");
   }
-}
+};
+
+
 
 export const login = async (req, res) => {
   const { email, password } = req.body;

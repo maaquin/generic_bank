@@ -6,6 +6,7 @@ import { Home } from '../pages/Home';
 import { Transferencia } from '../pages/Transferencia';
 import { Divisa } from '../pages/Divisa';
 import { CanjearView } from "../canjear/CanjearView.jsx";
+import { Cuentas } from '../pages/Cuenta';
 
 export const Content = ({ canjear, fav, updateFav, user }) => {
 
@@ -18,6 +19,7 @@ export const Content = ({ canjear, fav, updateFav, user }) => {
                 <Route path="/canjear/:id" element={<CanjearView/>}/>
                 <Route path="/favoritos" element={<Favoritos fav={fav} onFavUpdate={updateFav} />}/>
                 <Route path="/transferencia" element={<Transferencia/>}/>
+                <Route path="/cuentas" element={<Cuentas />} />
                 <Route path="/divisa" element={<Divisa/>}/>
             </Routes>
         </div>

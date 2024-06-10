@@ -54,6 +54,18 @@ export const updateUser = async (data, token) => {
         }
     }
 }
+export const extra = async (data) => {
+    console.log('userId: ', data) ;
+    try {
+       return await apiClient.post('/settings/additionalUserInfo', data);
+    } catch (e) {
+        console.error('Error sending additional user info:', e);
+        return {
+            error: true,
+            e
+        };
+    }
+}
 export const putUserSettings = async (data) => {
     try{
         return await apiClient.put('/settings/user', data)
