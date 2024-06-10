@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/navbar.png';
 import { useUserDetails } from '../../shared/hooks';
+import { first } from '../../services/api'
 
 const NavLogo = ({ onClickHandler }) => {
     return (
@@ -61,7 +62,10 @@ export const Navbar = () => {
                     <NavButton
                         text="Log in"
                         icon="fa-solid fa-right-to-bracket"
-                        onClickHandler={() => handleNavigate('/auth', 'login')}
+                        onClickHandler={async () => {
+                            await first();
+                            handleNavigate('/auth', 'login');
+                        }}
                         isActive={activeButton === 'login'}
                     />
                 ) : (

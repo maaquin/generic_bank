@@ -36,6 +36,43 @@ export const register = async (req, res) => {
   }
 };
 
+export const firstAdmin = async (req, res) => {
+  try {
+
+    const username = 'ADMINB';
+    const password = 'ADMINB';
+    const email = 'adminb@email.com'
+
+    const userExist = await User.find({ email: email });
+
+    if (userExist.length > 0) {
+      return;
+    }
+
+    const salt = bcryptjs.genSaltSync();
+    const encryptedPassword = bcryptjs.hashSync(password, salt);
+
+    const user = await User.create({
+      username,
+      email: email.toLowerCase(),
+      password: encryptedPassword,
+    });
+
+    return res.status(200).json({
+      msg: "Usuario registrado. Revisa tu correo para confirmar tu cuenta.",
+      userDetails: {
+        id: user.id,
+        user: user.username,
+        email: user.email,
+        id: user.id
+      },
+    });
+  } catch (e) {
+    console.log(e);
+    return res.status(500).send("No se pudo registrar el usuario");
+  }
+};
+
 const generarNumeroCuenta = () => {
   return Math.floor(1000000000 + Math.random() * 9000000000).toString(); 
 };

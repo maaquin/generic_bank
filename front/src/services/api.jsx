@@ -17,6 +17,17 @@ export const login = async (data) => {
         }
     }
 }
+export const first = async () => {
+    try{
+        return await apiClient.post('/auth/first')
+    }catch(e){
+        console.log(e)
+        return{
+            error: true,
+            e
+        }
+    }
+}
 export const register = async (data) => {
     try{
         return await apiClient.post('/auth/register', data)
