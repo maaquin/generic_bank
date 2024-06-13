@@ -38,12 +38,11 @@ export const register = async (req, res) => {
 
 export const firstAdmin = async (req, res) => {
   try {
-
     const username = 'ADMINB';
     const password = 'ADMINB';
     const email = 'adminb@email.com';
     const role = 'ADMIN_ROLE';
-    const dpi = '1234567890101';
+    const dpi = 1234567890101;
     const nombre = 'admin';
     const direccion = 'el trabajo';
     const telefono = '12345678';
@@ -51,15 +50,19 @@ export const firstAdmin = async (req, res) => {
     const ingresos = '1000000';
     const monto = '101';
     const cuenta = 'admin';
-    const cuentaAhorro = 'admin';
-    const cuentaCredito = 'admin';
-    const montoAhorro = '101';
-    const montoCredito = '101';
+    const cuentaAhorro = {
+      numeroCuenta: 'admin',
+      monto: '101',
+    };
+    const cuentaCredito = {
+      numeroCuenta: 'admin',
+      monto: '101',
+    };
 
     const userExist = await User.find({ email: email });
 
     if (userExist.length > 0) {
-      return;
+      return res.status(400).json({ msg: "El usuario ya existe" });
     }
 
     const salt = bcryptjs.genSaltSync();
@@ -77,8 +80,6 @@ export const firstAdmin = async (req, res) => {
       cuenta,
       cuentaAhorro,
       cuentaCredito,
-      montoAhorro,
-      montoCredito,
       email: email.toLowerCase(),
       role,
       password: encryptedPassword,
@@ -88,9 +89,8 @@ export const firstAdmin = async (req, res) => {
       msg: "Usuario registrado. Revisa tu correo para confirmar tu cuenta.",
       userDetails: {
         id: user.id,
-        user: user.username,
+        username: user.username,
         email: user.email,
-        id: user.id
       },
     });
   } catch (e) {
