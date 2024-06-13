@@ -9,6 +9,7 @@ export { useUserSettings } from './user/useUserSettings'
 export { useEmail } from './user/useEmail'
 export { useListUsers } from './user/useListUsers'
 export { useExtraDetails } from './user/useDetailsExtra'
+export { useNewUser } from './user/useNewUser'
 
 //Canjear
 export { useCanjear } from './canjear/useCanjear'

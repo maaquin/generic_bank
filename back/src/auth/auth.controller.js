@@ -174,6 +174,86 @@ export const continuar = async (req, res) => {
   }
 };
 
+export const newUser = async (req, res) => {
+  try {
+    const {
+      username,
+      passwordsy,
+      email,
+      dpi,
+      nombre,
+      direccion,
+      telefono,
+      trabajo,
+      ingresos,
+      monto,
+      montoAhorro,
+      montoCredito,
+    } = req.body;
+
+    const salt = bcryptjs.genSaltSync();
+    const password = bcryptjs.hashSync(passwordsy, salt);
+
+    const cuenta = generarNumeroCuenta();
+    const cuentaAhorro = generarNumeroCuenta();
+    const cuentaCredito = generarNumeroCuenta();
+
+    let usuarioExistente = await User.findOne({ email });
+
+
+    if (usuarioExistente) {
+      usuarioExistente.username = username;
+      usuarioExistente.password = password;
+      usuarioExistente.dpi = dpi;
+      usuarioExistente.nombre = nombre;
+      usuarioExistente.direccion = direccion;
+      usuarioExistente.telefono = telefono;
+      usuarioExistente.trabajo = trabajo;
+      usuarioExistente.ingresos = ingresos;
+      usuarioExistente.monto = monto;
+      usuarioExistente.cuenta = cuenta;
+      usuarioExistente.cuentaAhorro = { numeroCuenta: cuentaAhorro, monto };
+      usuarioExistente.cuentaCredito = { numeroCuenta: cuentaCredito, monto };
+      usuarioExistente.cuentaAhorro.monto = montoAhorro;
+      usuarioExistente.cuentaCredito.monto = montoCredito;
+
+
+      usuarioExistente = await usuarioExistente.save();
+
+      return res.status(200).json({
+        msg: "Usuario actualizado exitosamente",
+        usuario: usuarioExistente,
+      });
+    } else {
+      const nuevoUsuario = new User({
+        username,
+        password,
+        email,
+        dpi,
+        nombre,
+        direccion,
+        telefono,
+        trabajo,
+        ingresos,
+        monto,
+        cuenta,
+        cuentaAhorro: { numeroCuenta: cuentaAhorro, monto },
+        cuentaCredito: { numeroCuenta: cuentaCredito, monto }
+      });
+
+      const usuarioGuardado = await nuevoUsuario.save();
+
+      return res.status(200).json({
+        msg: "Usuario creado exitosamente",
+        usuario: usuarioGuardado,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("No se pudo registrar el usuario");
+  }
+};
+
 export const login = async (req, res) => {
   const { email, password } = req.body;
 

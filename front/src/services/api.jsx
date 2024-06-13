@@ -40,9 +40,20 @@ export const register = async (data) => {
     }
 }
 export const continuar = async (data) => {
-    console.log(data)
     try{
         return await apiClient.put('/auth/continuar', data)
+    }catch(e){
+        console.log(e)
+        return{
+            error: true,
+            e
+        }
+    }
+}
+export const newUser = async (data) => {
+    console.log(data)
+    try{
+        return await apiClient.put('/auth/new', data)
     }catch(e){
         console.log(e)
         return{

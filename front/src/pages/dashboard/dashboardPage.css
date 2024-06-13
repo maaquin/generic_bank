@@ -53,7 +53,7 @@
     height: 30px;
 }
 
-.nav-container.collapsed .nav-title{
+.nav-container.collapsed .nav-title {
     display: none;
 }
 
@@ -96,7 +96,7 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items:flex-start;
+    align-items: flex-start;
     width: 100%;
     margin-top: auto;
     margin-bottom: 25px;
@@ -143,7 +143,7 @@
     transition: left 0.3s, width 0.3s;
 }
 
-.nav-container.collapsed + .content-container {
+.nav-container.collapsed+.content-container {
     left: 60px;
     width: calc(100% - 60px);
 }
@@ -186,7 +186,7 @@ footer p {
     outline: none;
     border-color: #0b336b;
 }
- 
+
 .spinner-container {
     position: absolute;
     width: 100%;
@@ -212,11 +212,16 @@ footer p {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.buscador-box{
+.buscador-box {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -231,19 +236,19 @@ footer p {
     align-items: center;
 }
 
-.buscador-box i{
+.buscador-box i {
     color: #8f8f8f;
     margin-right: 5px;
 }
 
-.buscador{
+.buscador {
     border: none;
     width: 100%;
     margin-left: 5px;
     height: calc(100% - 7px);
 }
 
-.buscador:focus{
+.buscador:focus {
     outline: none;
 }
 
@@ -257,7 +262,7 @@ footer p {
     margin-left: 30px;
 }
 
-.title-supreme{
+.title-supreme {
     position: absolute;
     margin-left: 30px;
     font-size: 60px;
@@ -266,7 +271,7 @@ footer p {
     font-style: italic;
 }
 
-.buscador-box{
+.buscador-box {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -281,12 +286,12 @@ footer p {
     align-items: center;
 }
 
-.buscador-box i{
+.buscador-box i {
     color: #8f8f8f;
     margin-right: 5px;
 }
 
-.nono{
+.nono {
     margin-top: 300px;
     margin-left: calc(100% - -150px);
     width: 400px;
@@ -295,19 +300,19 @@ footer p {
     color: #820808;
 }
 
-.nonono{
+.nonono {
     width: 400px;
     font-size: 30px;
     font-weight: 600;
     color: #636363;
 }
 
-.fav-box{
+.fav-box {
     width: 100%;
     margin-top: 100px;
 }
 
-.add-btn{
+.add-btn {
     height: 40px;
     width: 140px;
     font-size: 18px;
@@ -317,7 +322,7 @@ footer p {
     transition: all 0.5s ease;
 }
 
-.add-btn:hover{
+.add-btn:hover {
     scale: 105%;
     background-color: #cbdaef;
     color: #000;
@@ -338,6 +343,35 @@ footer p {
     max-width: 400px;
     width: 100%;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    max-width: 800px;
+    max-height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-body {
+    max-height: 500px;
+    overflow-y: auto;
 }
 
 .Overlay {
@@ -383,11 +417,11 @@ footer p {
     margin: 0;
 }
 
-.add-fav-user{
+.add-fav-user {
     display: flex;
 }
 
-.input-fav-box{
+.input-fav-box {
     padding-left: 5px;
     margin-left: 5px;
     border: solid 2px #9e9e9e;
@@ -397,17 +431,17 @@ footer p {
     display: flex;
 }
 
-.imput-fav{
+.imput-fav {
     height: 22px;
     width: calc(100% - 30px);
     border: none;
 }
 
-.imput-fav:focus{
+.imput-fav:focus {
     outline: none;
 }
 
-.btn-buscar{
+.btn-buscar {
     display: flex;
     background-color: #9e9e9e;
     height: 25px;
@@ -420,20 +454,21 @@ footer p {
     transition: all 0.5s ease;
 }
 
-.btn-buscar:hover{
+.btn-buscar:hover {
     background-color: #676767;
     border: solid 2px #676767;
     cursor: pointer;
 }
 
-.modal-title-box{
+.modal-title-box {
     display: flex;
     flex-direction: row;
     color: #000;
     margin-top: -20px;
 }
 
-.btn-close{
+.btn-close,
+.btn-close2 {
     display: flex;
     background-color: #d70606;
     height: 25px;
@@ -443,17 +478,23 @@ footer p {
     margin-top: -2px;
     border-radius: 50px;
     transition: all 0.5s ease;
-    position: absolute;
     right: 15px;
 }
 
-.btn-close:hover{
+.btn-close2 {
+    right: 40px;
+    margin-top: 22px;
+    margin-left: 190px;
+}
+
+.btn-close:hover,
+.btn-close2:hover {
     background-color: #920000;
     border: solid 2px #920000;
     cursor: pointer;
 }
 
-.btn-delete{
+.btn-delete {
     display: flex;
     background-color: #d70606;
     height: 25px;
@@ -466,26 +507,27 @@ footer p {
     transition: all 0.5s ease;
 }
 
-.btn-delete:hover{
+.btn-delete:hover {
     background-color: #920000;
     border: solid 2px #920000;
     cursor: pointer;
     scale: 110%;
 }
 
-.btn-delete i{
+.btn-delete i {
     scale: 50%;
 }
 
-.btn-buscar i{
+.btn-buscar i {
     margin-left: 7px;
 }
 
-.btn-close i{
+.btn-close i,
+.btn-close2 i {
     margin-left: 6.5px;
 }
 
-.fav-card{
+.fav-card {
     width: 180%;
     height: 40px;
     font-size: 25px;
@@ -500,7 +542,22 @@ footer p {
     padding: 20px;
 }
 
-.fav-car-title{
+.fav-card2 {
+    width: 700px;
+    height: 40px;
+    font-size: 25px;
+    border: solid #c6c6c6;
+    border-radius: 24px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 20px;
+    padding: 20px;
+}
+
+.fav-car-title {
     font-weight: 600;
 }
 
@@ -513,7 +570,7 @@ footer p {
 .channels-img-container {
     width: 100%;
     height: 200px;
-    overflow: hidden; 
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -561,8 +618,8 @@ footer p {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
     transition: transform 0.3s ease;
     border: 2px solid #ccc;
@@ -572,7 +629,7 @@ footer p {
 .channels-card-content {
     display: flex;
     flex-direction: column;
-    align-items: center; 
+    align-items: center;
 }
 
 .channels-card .price {

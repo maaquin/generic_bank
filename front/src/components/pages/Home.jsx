@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Modal from "react-modal";
-import { UserCard } from '../usuarios/UserCard'
+
+import { UserCard } from '../usuarios/UserCard2'
+import { NewUser } from '../usuarios/NewUser';
 import { useUserDetails, useUserSettings } from "../../shared/hooks";
 import { LoadingSpinner } from '../LoadingSpinner';
 import { useNavigate } from "react-router-dom";
@@ -24,22 +26,17 @@ const getGreeting = () => {
     }
 };
 
-export const Home = (usuarios, onUserUpdate) => {
+export const Home = ({ usuarios, onFavUpdate }) => {
     console.log(usuarios)
     const [inputValue, setInputValue] = useState('');
     const [modalIsOpen, setModalIsOpen] = useState(false);
+
     const { isLogged } = useUserDetails();
     const { user, fetching } = useUserSettings();
+
     const userId = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null;
     const navigate = useNavigate();
 
-    const handleUserTypeSelection = (userType) => {
-        if (userType === "me") {
-            navigate("/you");
-        } else {
-            navigate("/someone");
-        }
-    };
 
     const handleInputChange = (e) => {
         setInputValue(e.target.value);
@@ -58,7 +55,7 @@ export const Home = (usuarios, onUserUpdate) => {
         return <LoadingSpinner />;
     }
 
-    const filteredUser = usuarios.usuarios.filter(use =>
+    const filteredUser = usuarios.filter(use =>
         use.nombre.toLowerCase().includes(inputValue.toLowerCase())
     );
 
@@ -128,7 +125,10 @@ export const Home = (usuarios, onUserUpdate) => {
                                             <UserCard key={index} data={favo} />
                                         ))
                                     ) : (
-                                        <p className="nonono">Parece que aún no hay usuarios, pero si estas tu ya hay, asi que debe ser un error de conexion con backend o data base xddddddd</p>
+                                        <>
+                                            <p className="nonono">search not found</p>
+                                            <img className='cheems' src='https://ds-images.bolavip.com/news/image?src=https://images.redgol.cl/webp/full/RDG_20230819_RDG_98034_Cheems-4.webp&width=480&height=508' />
+                                        </>
                                     )}
                                 </div>
                             </div>
@@ -137,10 +137,21 @@ export const Home = (usuarios, onUserUpdate) => {
                                 isOpen={modalIsOpen}
                                 onRequestClose={closeModal}
                                 contentLabel="Add Favorite User"
-                                className="Modal"
+                                className="modal"
                                 overlayClassName="Overlay"
                             >
-                                <h1>hola</h1>
+                                <div className='modal-content'>
+                                    <div className='modal-body'>
+
+                                        <div className="modal-title-box">
+                                            <h2>Agregar Usuario</h2>
+                                            <span className="btn-close2" role="button" onClick={closeModal}>
+                                                <i className="fa-solid fa-xmark" style={{ color: '#fff' }}></i>
+                                            </span>
+                                        </div>
+                                        <NewUser onFavUpdate={onFavUpdate} />
+                                    </div>
+                                </div>
                             </Modal>
                         </>
                     )}
