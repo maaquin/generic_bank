@@ -18,7 +18,7 @@ export const Content = ({ canjear, fav, updateFav, user }) => {
                 <Route path="/canjear" element={<Canjear canjear={canjear} />} />
                 <Route path="/canjear/:id" element={<CanjearView />} />
                 <Route path="/favoritos" element={<Favoritos fav={fav} onFavUpdate={updateFav} />} />
-                <Route path="/transferencia" element={<Transferencia />} />
+                <Route path="/transferencia" element={<Transferencia fav={fav}/>} />
                 <Route path="/divisa" element={<Divisa />} />
                 <Route path="/cuentas" element={<Cuentas />} />
             </Routes>

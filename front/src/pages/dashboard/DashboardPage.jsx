@@ -8,6 +8,7 @@ import "./dashboardPage.css";
 import './css/home.css';
 import './css/divisa.css';
 import './css/transferencia.css'
+import { addFav } from "../../services";
 
 export const DashboardPage = () => {
 
@@ -15,7 +16,6 @@ export const DashboardPage = () => {
     const { getFav, allFav, isFetching: isFavFetching } = useListFav();
     const { getUser, allUser, isFetching: isUserFetching } = useListUsers();
     const { isLogged } = useUserDetails();
-
     const [favUpdated, setFavUpdated] = useState(false);
     const handleFavUpdate = () => {
         setFavUpdated(!favUpdated);
@@ -29,7 +29,9 @@ export const DashboardPage = () => {
 
     if (isCanjearFetching || isFavFetching || isUserFetching) {
         return <LoadingSpinner />;
+        
     }
+    console.log(allFav)
 
     return (
         <div className="dashboard-container">

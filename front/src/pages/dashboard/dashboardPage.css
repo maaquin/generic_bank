@@ -384,7 +384,8 @@ footer p {
     z-index: 1000;
 }
 
-.add-fav {
+.add-fav,
+.transfer-card {
     border: none;
     background-color: #e0e0e0;
     color: #000;
@@ -397,13 +398,26 @@ footer p {
     transition: all 0.5s ease;
 }
 
-.add-fav:hover {
+.transfer-card{
+    scale: 120%;
+    margin-top: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.add-fav:hover,
+.transfer-card:hover {
     background-color: #c6d6ee;
     scale: 103%;
     cursor: pointer;
 }
 
-.add-fav div {
+.transfer-card:hover {
+    scale: 125%;
+}
+
+.add-fav div,
+.transfer-card div {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -413,8 +427,22 @@ footer p {
     font-size: 20px;
 }
 
-.add-fav p {
+.transfer-card i {
+    font-size: 25px;
+}
+
+.transfer-card span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.add-fav p,
+.transfer-card p {
     margin: 0;
+}
+
+.transfer-card p {
+    font-size: 20px;
 }
 
 .add-fav-user {
@@ -494,9 +522,7 @@ footer p {
     cursor: pointer;
 }
 
-.btn-delete,
-.btn-edit,
-.btn-info {
+.btn-delete {
     display: flex;
     background-color: #d70606;
     height: 25px;
@@ -509,16 +535,6 @@ footer p {
     transition: all 0.5s ease;
 }
 
-.btn-edit {
-    background-color: #ffc800;
-    border: solid 2px #ffc800;
-}
-
-.btn-info {
-    background-color: #3c99d3;
-    border: solid 2px #3c99d3;
-}
-
 .btn-delete:hover {
     background-color: #920000;
     border: solid 2px #920000;
@@ -526,23 +542,7 @@ footer p {
     scale: 110%;
 }
 
-.btn-edit:hover {
-    background-color: #ffb508;
-    border: solid 2px #ffb508;
-    cursor: pointer;
-    scale: 110%;
-}
-
-.btn-info:hover {
-    background-color: #096190;
-    border: solid 2px #096190;
-    cursor: pointer;
-    scale: 110%;
-}
-
-.btn-delete i,
-.btn-edit i,
-.btn-info i {
+.btn-delete i {
     scale: 50%;
 }
 
@@ -565,7 +565,7 @@ footer p {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     gap: 20px;
     padding: 20px;
 }

@@ -18,6 +18,7 @@ export const useListFav = () => {
                     );
                 } else {
                     setFav(favData.data);
+                    console.log(fav)
                 }
             }
         } catch (error) {

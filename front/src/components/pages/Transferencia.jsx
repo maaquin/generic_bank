@@ -1,88 +1,64 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import TransferIcon from '@mui/icons-material/TransferWithinAStation';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import { FavCard } from '../usuarios/TransferCard';
+import FinalizarTransferenciaModal from './FinalizarTransferenciaModal';
 
-export const Transferencia = () => {
-  const [anchorEl, setAnchorEl] = useState({});
-  const navigate = useNavigate();
+export const Transferencia = ({ fav }) => {
+  const [inputValue, setInputValue] = useState('');
+  const [selectedCuenta, setSelectedCuenta] = useState(null);
+  const [selectedTipoCuenta, setSelectedTipoCuenta] = useState('monetaria'); // Default tipo de cuenta
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleClick = (event, index) => {
-    setAnchorEl({ ...anchorEl, [index]: event.currentTarget });
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
   };
 
-  const handleClose = (index) => {
-    setAnchorEl({ ...anchorEl, [index]: null });
+  const handleCardClick = (cuenta, tipoCuenta) => {
+    setSelectedCuenta(cuenta);
+    setSelectedTipoCuenta(tipoCuenta);
+    setIsModalOpen(true);
   };
 
-  const handleTransferir = (index) => {
-    console.log("Transferir cuenta con índice:", index);
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedCuenta(null);
   };
 
-  const handleEliminar = (index) => {
-    console.log("Eliminar cuenta con índice:", index);
-    setAnchorEl({ ...anchorEl, [index]: null });
-  };
-
-  const renderCuentaAgregada = (cuenta, index, color) => (
-    <div className="cuenta" key={index} style={{ backgroundColor: color }}>
-      <div className="info-item">{cuenta.numeroCuenta}</div>
-      <div className="info-item">{cuenta.dpi}</div>
-      <div className="info-item">{cuenta.alias}</div>
-      <div className="info-item">
-        <div>
-          <IconButton
-            aria-label="more"
-            aria-controls={`long-menu-${index}`}
-            aria-haspopup="true"
-            onClick={(event) => handleClick(event, index)}
-            className="transferencia-icon">
-            <MoreVertIcon />
-          </IconButton>
-          <Menu
-            id={`long-menu-${index}`}
-            anchorEl={anchorEl[index]}
-            open={Boolean(anchorEl[index])}
-            onClose={() => handleClose(index)}
-          >
-            <MenuItem onClick={() => handleTransferir(index)} className="transferir-button">
-              <TransferIcon />
-              Transferir
-            </MenuItem>
-            <MenuItem onClick={() => handleEliminar(index)} className="cancelar-button">
-              <DeleteIcon />
-              Eliminar
-            </MenuItem>
-            <MenuItem onClick={() => handleEliminar(index)} className="editar-button">
-              <EditIcon />
-              Editar
-            </MenuItem>
-          </Menu>
-        </div>
-      </div>
-    </div>
+  const filteredFav = fav.filter(favo =>
+    favo.user2.nombre.toLowerCase().includes(inputValue.toLowerCase())
   );
 
   return (
     <div className="centrado">
       <h2 className="titulo">Transferencias</h2>
       <hr className="linea" />
+      <div className="buscador-box">
+        <input
+          type="text"
+          className="buscador"
+          placeholder="Buscar cuentas..."
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </div>
       <div className="cuentas-agregadas">
         <h3>Cuentas agregadas</h3>
-        <div className="user-info-card">
-          <div className="header-container">
-            <div className="info-item info-header">No. Cuenta</div>
-            <div className="info-item info-header">DPI</div>
-            <div className="info-item info-header">Alias</div>
-            <div className="info-item info-header">Opciones</div>
-          </div>
-        </div>
+        {filteredFav.length > 0 ? (
+          filteredFav.map((favo, index) => (
+            <FavCard key={index} data={favo} onClick={() => handleCardClick(favo.user2, 'monetaria')} />
+          ))
+        ) : (
+          <p className="nonono">No hay ninguna cuenta con ese nombre</p>
+        )}
       </div>
+      {selectedCuenta && (
+        <FinalizarTransferenciaModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          cuenta={selectedCuenta}
+          tipoCuenta={selectedTipoCuenta}
+        />
+      )}
     </div>
   );
 };

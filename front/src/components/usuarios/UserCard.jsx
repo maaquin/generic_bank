@@ -15,17 +15,9 @@ export const UserCard = ({ data }) => {
         }
     }
 
-    const edit = (id) => {
-        if (isLoading) {
-            return (
-                <LoadingSpinner />
-            )
-        }
-    }
-
     return (
         <div className="fav-card">
-            <i className="fa-solid fa-user"></i>
+            <i class="fa-solid fa-user"></i>
             <span className='fav-car-title'>Nombre: </span>
             <span className="fav-card-text">{nombre}</span>
             <span className='fav-car-title'>Cuenta: </span>

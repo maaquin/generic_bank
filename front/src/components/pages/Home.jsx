@@ -59,6 +59,8 @@ export const Home = ({ usuarios, onFavUpdate }) => {
         use.nombre.toLowerCase().includes(inputValue.toLowerCase())
     );
 
+    console.log(user)
+
     return (
         <div className="home-container">
             {!isLogged ? (

@@ -72,7 +72,7 @@ export const Cuentas = () => {
             <div className="user-data">
               <div className="info-item">
                 {extraDetails.data.userData.cuentaAhorro.numeroCuenta} 
-              </div>
+              </div>  
               <div className="info-item">
                 {extraDetails.data.userData.nombre} 
               </div>
