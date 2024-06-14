@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../../assets/navbar.png';
-import { useUserDetails } from '../../shared/hooks';
+import { useUserDetails, useUserSettings } from '../../shared/hooks';
 import { first } from '../../services/api'
+import { LoadingSpinner } from '../LoadingSpinner';
 
 const NavLogo = ({ onClickHandler }) => {
     return (
@@ -27,6 +28,8 @@ export const Navbar = () => {
     const navigate = useNavigate();
     const [collapsed, setCollapsed] = useState(false);
     const [activeButton, setActiveButton] = useState('');
+    const { user, fetching } = useUserSettings();
+    const userId = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")).id : null;
 
     const toggleCollapse = () => {
         setCollapsed(!collapsed);
@@ -41,6 +44,10 @@ export const Navbar = () => {
         logout();
         setActiveButton('');
     };
+
+    if (userId && fetching) {
+        return <LoadingSpinner />;
+    }
 
     return (
         <div className={`nav-container ${collapsed ? 'collapsed' : ''}`}>
@@ -69,38 +76,45 @@ export const Navbar = () => {
                         isActive={activeButton === 'login'}
                     />
                 ) : (
-                    <div className="mini-buttons-container">
-                        <NavButton
-                            text="Canjear"
-                            icon="fa-solid fa-bag-shopping"
-                            onClickHandler={() => handleNavigate('/canjear', 'canjear')}
-                            isActive={activeButton === 'canjear'}
-                        />
-                        <NavButton
-                            text="Favoritos"
-                            icon="fa-solid fa-star"
-                            onClickHandler={() => handleNavigate('/favoritos', 'favoritos')}
-                            isActive={activeButton === 'favoritos'}
-                        />
-                        <NavButton
-                            text="Transferencia"
-                            icon="fa-solid fa-piggy-bank"
-                            onClickHandler={() => handleNavigate('/cuentas', 'cuentas')}
-                            isActive={activeButton === 'cuentas'}
-                        />
-                        <NavButton
-                            text="Settings"
-                            icon="fa-solid fa-gear"
-                            onClickHandler={() => handleNavigate('/settings', 'settings')}
-                            isActive={activeButton === 'settings'}
-                        />
-                        <NavButton
-                            text="Log out"
-                            icon="fa-solid fa-right-from-bracket"
-                            onClickHandler={handleLogout}
-                            isActive={activeButton === 'logout'}
-                        />
-                    </div>
+                    <>
+                        {user.role === 'CLIENT_ROLE' ? (
+                            <div className="mini-buttons-container">
+                                <NavButton
+                                    text="Canjear"
+                                    icon="fa-solid fa-bag-shopping"
+                                    onClickHandler={() => handleNavigate('/canjear', 'canjear')}
+                                    isActive={activeButton === 'canjear'}
+                                />
+                                <NavButton
+                                    text="Favoritos"
+                                    icon="fa-solid fa-star"
+                                    onClickHandler={() => handleNavigate('/favoritos', 'favoritos')}
+                                    isActive={activeButton === 'favoritos'}
+                                />
+                            </div>
+                        ) : (
+                            <div className="mini-buttons-container">
+                                <NavButton
+                                    text="Transferencia"
+                                    icon="fa-solid fa-piggy-bank"
+                                    onClickHandler={() => handleNavigate('/cuentas', 'cuentas')}
+                                    isActive={activeButton === 'cuentas'}
+                                />
+                                <NavButton
+                                    text="Settings"
+                                    icon="fa-solid fa-gear"
+                                    onClickHandler={() => handleNavigate('/settings', 'settings')}
+                                    isActive={activeButton === 'settings'}
+                                />
+                                <NavButton
+                                    text="Log out"
+                                    icon="fa-solid fa-right-from-bracket"
+                                    onClickHandler={handleLogout}
+                                    isActive={activeButton === 'logout'}
+                                />
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
         </div>

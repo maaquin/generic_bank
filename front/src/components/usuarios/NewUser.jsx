@@ -144,7 +144,6 @@ export const NewUser = (onFavUpdate) => {
 
     useEffect(() => {
         if (newAdded) {
-            onFavUpdate();
             setNewAdded(false);
         }
     }, [newAdded, onFavUpdate]);
