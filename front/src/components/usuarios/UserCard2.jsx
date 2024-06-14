@@ -25,6 +25,9 @@ export const UserCard = ({ data }) => {
             <span className="btn-delete" role="button" onClick={() => delet(uid)}>
                 <i className="fa-solid fa-trash" style={{ color: '#fff' }}></i>
             </span>
+            <span className="btn-edit" role="button" onClick={() => edit(uid)}>
+                <i className="fa-solid fa-pen" style={{ color: '#fff' }}></i>
+            </span>
         </div>
     );
 };

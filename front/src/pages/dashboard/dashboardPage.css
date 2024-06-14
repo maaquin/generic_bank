@@ -494,7 +494,8 @@ footer p {
     cursor: pointer;
 }
 
-.btn-delete {
+.btn-delete,
+.btn-edit {
     display: flex;
     background-color: #d70606;
     height: 25px;
@@ -507,6 +508,11 @@ footer p {
     transition: all 0.5s ease;
 }
 
+.btn-edit {
+    background-color: #ffc800;
+    border: solid 2px #ffc800;
+}
+
 .btn-delete:hover {
     background-color: #920000;
     border: solid 2px #920000;
@@ -514,7 +520,15 @@ footer p {
     scale: 110%;
 }
 
-.btn-delete i {
+.btn-edit:hover {
+    background-color: #ffb508;
+    border: solid 2px #ffb508;
+    cursor: pointer;
+    scale: 110%;
+}
+
+.btn-delete i,
+.btn-edit i {
     scale: 50%;
 }
 
