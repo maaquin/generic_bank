@@ -11,6 +11,7 @@ export const useListUsers = () => {
         try {
             if (isLogged) {
                 const data = await users();
+                console.log(data)
                 if (data.error) {
                     toast.error(
                         data.e?.data?.data || 'Error ocurred when reading'
