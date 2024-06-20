@@ -91,6 +91,24 @@ export const Navbar = () => {
                                     onClickHandler={() => handleNavigate('/favoritos', 'favoritos')}
                                     isActive={activeButton === 'favoritos'}
                                 />
+                                <NavButton
+                                    text="Transferencia"
+                                    icon="fa-solid fa-piggy-bank"
+                                    onClickHandler={() => handleNavigate('/cuentas', 'cuentas')}
+                                    isActive={activeButton === 'cuentas'}
+                                />
+                                <NavButton
+                                    text="Settings"
+                                    icon="fa-solid fa-gear"
+                                    onClickHandler={() => handleNavigate('/settings', 'settings')}
+                                    isActive={activeButton === 'settings'}
+                                />
+                                <NavButton
+                                    text="Log out"
+                                    icon="fa-solid fa-right-from-bracket"
+                                    onClickHandler={handleLogout}
+                                    isActive={activeButton === 'logout'}
+                                />
                             </div>
                         ) : (
                             <div className="mini-buttons-container">

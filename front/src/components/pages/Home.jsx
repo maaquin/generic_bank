@@ -120,7 +120,7 @@ export const Home = ({ usuarios, onFavUpdate }) => {
                                     </button>
                                     {filteredUser.length > 0 ? (
                                         filteredUser.map((favo, index) => (
-                                            <UserCard key={index} data={favo} />
+                                            <UserCard key={index} data={favo} onFavUpdate={onFavUpdate}  />
                                         ))
                                     ) : (
                                         <>

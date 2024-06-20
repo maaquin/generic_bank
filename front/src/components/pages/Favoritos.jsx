@@ -75,7 +75,7 @@ export const Favoritos = ({ fav, onFavUpdate }) => {
                     </button>
                     {filteredFav.length > 0 ? (
                         filteredFav.map((favo, index) => (
-                            <FavCard key={index} data={favo} />
+                            <FavCard key={index} data={favo} onFavUpdate={onFavUpdate} />
                         ))
                     ) : (
                         <p className="nonono">Parece que aún no has agregado ningún usuario favorito.</p>
