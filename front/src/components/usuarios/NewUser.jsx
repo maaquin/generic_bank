@@ -15,7 +15,7 @@ import {
 } from '../../shared/validators'
 
 
-export const NewUser = (onFavUpdate) => {
+export const NewUser = ({ onFavUpdate }) => {
     const [newAdded, setNewAdded] = useState(false);
 
     const { newUser, isLoading } = useNewUser();
@@ -142,12 +142,6 @@ export const NewUser = (onFavUpdate) => {
         }))
     }
 
-    useEffect(() => {
-        if (newAdded) {
-            setNewAdded(false);
-        }
-    }, [newAdded, onFavUpdate]);
-
     const handleNewUser = async (event) => {
         event.preventDefault();
 
@@ -166,7 +160,7 @@ export const NewUser = (onFavUpdate) => {
             formState.montoCredito.value
         );
 
-        setNewAdded(true);
+        onFavUpdate();
     };
 
     const isSubmitButtonDisable = isLoading || !formState.username.isValid ||

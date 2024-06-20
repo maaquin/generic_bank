@@ -178,7 +178,7 @@ export const newUser = async (req, res) => {
   try {
     const {
       username,
-      passwordsy,
+      password,
       email,
       dpi,
       nombre,
@@ -192,7 +192,9 @@ export const newUser = async (req, res) => {
     } = req.body;
 
     const salt = bcryptjs.genSaltSync();
-    const password = bcryptjs.hashSync(passwordsy, salt);
+    const encryptedPassword = bcryptjs.hashSync(password, salt);
+
+    console.log(encryptedPassword)
 
     const cuenta = generarNumeroCuenta();
     const cuentaAhorro = generarNumeroCuenta();
@@ -200,10 +202,9 @@ export const newUser = async (req, res) => {
 
     let usuarioExistente = await User.findOne({ email });
 
-
     if (usuarioExistente) {
       usuarioExistente.username = username;
-      usuarioExistente.password = password;
+      usuarioExistente.password = encryptedPassword;
       usuarioExistente.dpi = dpi;
       usuarioExistente.nombre = nombre;
       usuarioExistente.direccion = direccion;
@@ -227,7 +228,7 @@ export const newUser = async (req, res) => {
     } else {
       const nuevoUsuario = new User({
         username,
-        password,
+        password: encryptedPassword,
         email,
         dpi,
         nombre,

@@ -53,7 +53,7 @@ export const continuar = async (data) => {
 export const newUser = async (data) => {
     console.log(data)
     try{
-        return await apiClient.put('/auth/new', data)
+        return await apiClient.post('/auth/new', data)
     }catch(e){
         console.log(e)
         return{
