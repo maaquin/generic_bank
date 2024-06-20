@@ -7,15 +7,31 @@ export const FinalizarTransferenciaModal = ({ isOpen, onClose, cuenta, tipoCuent
   useEffect(() => {
     if (cuenta) {
       setSelectedAccountType(tipoCuenta);
-      setAccountNumber(cuenta[tipoCuenta]);
+      updateAccountNumber(tipoCuenta);
     }
   }, [cuenta, tipoCuenta]);
+
+  const updateAccountNumber = (accountType) => {
+    if (cuenta) {
+      let newAccountNumber = 'No disponible';
+      if (accountType === 'ahorro' && cuenta.cuentaAhorro && cuenta.cuentaAhorro.numeroCuenta) {
+        newAccountNumber = cuenta.cuentaAhorro.numeroCuenta;
+      } else if (accountType === 'credito' && cuenta.cuentaCredito && cuenta.cuentaCredito.numeroCuenta) {
+        newAccountNumber = cuenta.cuentaCredito.numeroCuenta;
+      } else if (accountType === 'monetaria' && cuenta.cuenta) {
+        newAccountNumber = cuenta.cuenta;
+      }
+      setAccountNumber(newAccountNumber);
+      console.log(`Updated account number for ${accountType}: ${newAccountNumber}`);
+    }
+  };
 
   const handleAccountTypeChange = (e) => {
     const accountType = e.target.value;
     setSelectedAccountType(accountType);
-    setAccountNumber(cuenta[accountType]);
+    updateAccountNumber(accountType);
   };
+
 
   const handleTransfer = () => {
     if (!selectedAccountType) {
@@ -31,7 +47,7 @@ export const FinalizarTransferenciaModal = ({ isOpen, onClose, cuenta, tipoCuent
     <div className="modal-overlay">
       <div className="modal">
         <h2>Finalizar Transferencia</h2>
-        <p>Nombre: {cuenta.nombre}</p>
+        <p>Nombre: {cuenta?.nombre || 'No disponible'}</p>
         <p>Número de cuenta: {accountNumber}</p>
         
         <div className="select-account-type">
@@ -49,4 +65,3 @@ export const FinalizarTransferenciaModal = ({ isOpen, onClose, cuenta, tipoCuent
     </div>
   );
 };
-

@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { FavCard } from '../usuarios/TransferCard';
-import FinalizarTransferenciaModal from './FinalizarTransferenciaModal';
+import { FinalizarTransferenciaModal } from './finalizarTransferencia';
 
 export const Transferencia = ({ fav }) => {
   const [inputValue, setInputValue] = useState('');
   const [selectedCuenta, setSelectedCuenta] = useState(null);
-  const [selectedTipoCuenta, setSelectedTipoCuenta] = useState('monetaria'); // Default tipo de cuenta
+  const [selectedTipoCuenta, setSelectedTipoCuenta] = useState('monetaria'); 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleInputChange = (e) => {
