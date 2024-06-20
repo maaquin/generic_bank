@@ -164,6 +164,21 @@ export const deleteFav = async (req, res) => {
     }
 };
 
+export const deleteUser = async (req, res) => {
+    try {
+        const { id } = req.params;
+        console.log('id: ', id)
+        const fav = await User.findByIdAndDelete(id);
+        console.log(fav)
+        return res.status(200).json({
+            fav
+        });
+    } catch (e) {
+        console.log(e);
+        return res.status(500).send("No se pudo :(");
+    }
+};
+
 export const getAdditionalUserInfo = async (req, res) => {
     try {
 

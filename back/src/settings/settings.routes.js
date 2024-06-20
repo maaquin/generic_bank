@@ -12,7 +12,8 @@ import {
     deleteFav,
     listFav,
     listEmail,
-    getAdditionalUserInfo
+    getAdditionalUserInfo,
+    deleteUser
 } from "./settingsUser.controller.js";
 
 const router = Router()
@@ -24,6 +25,7 @@ router.put('/transferencia', [validarCampos], transferencia)
 router.patch('/user', passwordPatch)
 router.post('/email', listEmail)
 router.post('/additionalUserInfo', getAdditionalUserInfo)
+router.delete('/user/:id', deleteUser)
 
 
 router.get('/fav/:id', listFav)

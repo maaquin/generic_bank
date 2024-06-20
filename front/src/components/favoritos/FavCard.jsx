@@ -7,8 +7,12 @@ export const FavCard = ({ data, onFavUpdate }) => {
     const { deleteFav, isLoading } = useDeleteFav()
 
     const handleDeleteFav = async (favId) => {
-        await deleteFav(favId);
-        onFavUpdate(); 
+        const confirmDelete = window.confirm('¿Estás seguro que deseas eliminar este usuario?');
+
+        if (confirmDelete) {
+            await deleteFav(favId);
+            onFavUpdate();
+        }
     };
 
     return (

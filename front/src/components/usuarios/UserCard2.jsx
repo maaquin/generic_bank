@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { useDeleteFav } from '../../shared/hooks';
+import { useDeleteUser } from '../../shared/hooks';
 import { LoadingSpinner } from '../LoadingSpinner';
 import Modal from "react-modal";
 
 export const UserCard = ({ data, onFavUpdate }) => {
     const { nombre, cuenta, uid, username, role, email, cuentaAhorro, cuentaCredito, direccion, dpi, ingresos, montoIngresos, telefono, trabajo } = data;
-    const { deleteFav, isLoading } = useDeleteFav();
+    const { deleteUser, isLoading } = useDeleteUser();
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [currentUserData, setCurrentUserData] = useState(null);
 
@@ -19,14 +19,14 @@ export const UserCard = ({ data, onFavUpdate }) => {
         setCurrentUserData(null);
     };
 
-    const delet = (id) => {
-        deleteFav(id);
-        if (isLoading) {
-            return (
-                <LoadingSpinner />
-            );
+    const delet = async (userId) => {
+        const confirmDelete = window.confirm('¿Estás seguro que deseas eliminar este usuario?');
+
+        if (confirmDelete) {
+            await deleteUser(userId);
+            onFavUpdate();
         }
-    }
+    };
 
     return (
         <>

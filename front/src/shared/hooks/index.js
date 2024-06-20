@@ -10,6 +10,7 @@ export { useEmail } from './user/useEmail'
 export { useListUsers } from './user/useListUsers'
 export { useExtraDetails } from './user/useDetailsExtra'
 export { useNewUser } from './user/useNewUser'
+export { useDeleteUser } from './user/useDeleteUser'
 
 //Canjear
 export { useCanjear } from './canjear/useCanjear'
