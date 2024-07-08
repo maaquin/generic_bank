@@ -4,7 +4,8 @@ import {
     validationEmail,
     validatePassword,
     validateUsername,
-    validateConfirmPassword
+    validateConfirmPassword,
+    validateAdminConfirm
 } from '../shared/validators'
 import { useRegister } from '../shared/hooks'
 
@@ -25,6 +26,14 @@ export const Register = ({ switchAuthHandler }) => {
             isValid: false
         },
         email: {
+            value: '',
+            isValid: false
+        },
+        userConfirm: {
+            value: '',
+            isValid: false
+        },
+        adminConfirm: {
             value: '',
             isValid: false
         },
@@ -59,6 +68,14 @@ export const Register = ({ switchAuthHandler }) => {
                 isValid = validateUsername(value)
                 break
 
+            case 'userConfirm':
+                isValid = value === 'user'
+                break
+
+            case 'adminConfirm':
+                isValid = validateAdminConfirm(value)
+                break
+
             default:
                 break
         }
@@ -76,10 +93,22 @@ export const Register = ({ switchAuthHandler }) => {
     const handleRegister = (event) => {
         event.preventDefault()
 
-        register(formState.username.value, formState.password.value, formState.email.value)
+        register(
+            formState.username.value,
+            formState.password.value,
+            formState.email.value,
+            formState.userConfirm.value,
+            formState.adminConfirm.value
+        )
     }
 
-    const isSubmitButtonDisable = isLoading || !formState.username.isValid || !formState.email.isValid || !formState.password.isValid || !formState.passwordConfirm.isValid
+    const isSubmitButtonDisable = isLoading || 
+        !formState.username.isValid || 
+        !formState.email.isValid || 
+        !formState.password.isValid || 
+        !formState.passwordConfirm.isValid ||
+        !formState.userConfirm.isValid ||
+        !formState.adminConfirm.isValid
 
     return (
         <div className="register-container">
@@ -151,6 +180,40 @@ export const Register = ({ switchAuthHandler }) => {
                     )}
                     {!formState.passwordConfirm.showError && (
                         <i className="fa-solid fa-lock"></i>
+                    )}
+                </div>
+                <div className="input-box">
+                    <Input
+                        field='userConfirm'
+                        placeholder='Confirm User'
+                        className='login-input'
+                        value={formState.userConfirm.value}
+                        onChangeHandler={handleInputValueChange}
+                        type='text'
+                        onBlurHandler={handleInputValidationOnBlur}
+                    />
+                    {formState.userConfirm.showError && !formState.userConfirm.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.userConfirm.showError && (
+                        <i className="fa-solid fa-check"></i>
+                    )}
+                </div>
+                <div className="input-box">
+                    <Input
+                        field='adminConfirm'
+                        placeholder='Confirm Admin'
+                        className='login-input'
+                        value={formState.adminConfirm.value}
+                        onChangeHandler={handleInputValueChange}
+                        type='text'
+                        onBlurHandler={handleInputValidationOnBlur}
+                    />
+                    {formState.adminConfirm.showError && !formState.adminConfirm.isValid && (
+                        <i className="fa-solid fa-triangle-exclamation" style={{ color: 'red' }}></i>
+                    )}
+                    {!formState.adminConfirm.showError && (
+                        <i className="fa-solid fa-user-shield"></i>
                     )}
                 </div>
                 <button onClick={handleRegister} disabled={isSubmitButtonDisable}>
