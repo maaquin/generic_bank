@@ -1,0 +1,414 @@
+.cuentas-container {
+    padding: 20px;
+}
+
+.barra-superior {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-bottom: 1px solid #636161;
+}
+
+.info-adicional {
+    margin-top: 20px;
+}
+
+.usuario-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-info-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(12, 12, 12, 0.1);
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+}
+
+.user-data .info-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    color: rgb(10, 10, 10);
+    border: 2px solid #f5f1f1;
+    border-right: 1px solid #dddddd;
+}
+
+.user-data .info-item button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+    cursor: pointer; 
+    padding: 5px 15px; 
+    font-size: 16px;
+    background-color: transparent;
+    color: #000000; 
+    border-radius: 5px; 
+    box-shadow: 0px 4px 6px rgba(255, 247, 247, 0.1);
+}
+
+.user-data .info-item button:hover {
+    background-color: #2C5C8A;
+    color: #ffffff; 
+    transform: scale(1.1);
+}
+
+
+.user-info-card:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    background-color: #2C5C8A;
+    border-radius: 5px 5px 0 0;
+    width: 100;
+}
+
+.header-container .info-header {
+    color: #ffffff;
+}
+
+.user-data {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+
+.info-item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    color: rgb(10, 10, 10);
+    border-right: 1px solid #dddddd;
+}
+
+.info-header {
+    background-color: #2C5C8A;
+}
+
+.info-item p {
+    margin: 0;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+}
+
+.button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #2C5C8A;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.753);
+}
+
+.button:hover {
+    background-color: #2C5C8A;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.548);
+    color: #FFFFFF;
+    transform: scale(1.10);
+}
+
+.centrado {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.titulo {
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+
+.linea {
+    width: 100%;
+}
+
+.cuadro {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.texto {
+    margin-right: 10px;
+}
+
+.cuadro .linea {
+    margin-top: 15px;
+}
+
+.info-item {
+    flex: 1;
+    padding: 10px;
+    min-width: 100px;
+}
+
+.info-item.info-header {
+    font-weight: bold;
+}
+
+.cuenta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+}
+
+.user-info-card {
+    margin-top: 20px;
+    width: 100%;
+}
+
+.transferencia-icon {
+    color: rgb(158, 27, 23) !important;
+}
+
+.cancelar-button {
+    color: #000000 !important;
+    background-color: #fffcfc !important;
+}
+
+.cancelar-button:hover {
+    color: #ebeaea !important;
+    background-color: #7E1A1A !important;
+}
+
+.transferir-button {
+    color: #000000 !important;
+    background-color: #feffff !important;
+}
+
+.transferir-button:hover {
+    color: #ffffff !important;
+    background-color: #2C5C8A !important;
+}
+
+
+.editar-button {
+    color: #000000 !important;
+    background-color: #fffcfc !important;
+}
+
+.editar-button:hover {
+    color: #ffffff !important;
+    background-color: #D1B31A !important;
+}
+
+.buscador-box {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    border: 2px solid #aaaaaa;
+    border-radius: 15px;
+    background-color: #fff;
+    margin-top: 30px;
+    margin-left: calc(100% - 375px);
+    height: 40px;
+    min-width: 300px;
+    justify-content: center;
+    align-items: center;
+}
+
+.buscador-box i {
+    color: #8f8f8f;
+    margin-right: 5px;
+}
+
+.buscador {
+    border: none;
+    width: 100%;
+    margin-left: 5px;
+    height: calc(100% - 7px);
+}
+
+.buscador:focus {
+    outline: none;
+}
+
+/* styles.css */
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Ajusta el tamaño máximo del modal */
+    overflow: auto;
+}
+
+.modal h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.modal-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.account-info {
+    flex: 1 1 45%; /* 45% del ancho, ajustable según necesidad */
+    margin-bottom: 20px;
+}
+
+.transfer-actions {
+    flex: 1 1 45%; /* 45% del ancho, ajustable según necesidad */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .select-account-type,
+.modal .enter-amount,
+.modal .modal-buttons {
+    margin-top: 20px;
+}
+
+.modal .select-account-type label,
+.modal .enter-amount label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.modal .select-account-type select,
+.modal .enter-amount input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.modal .modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.modal .modal-buttons button {
+    flex: 1 1 48%;
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 14px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.modal .modal-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.success-message,
+.transfer-details {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.success-message {
+    color: #fff
+}
+  
+  .cuentas-agregadas {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cuentas-agregadas h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.cuentas-agregadas .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.transfer-card {
+    background-color: #fff;
+    border-radius: 18px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: all .3s;
+}
+
+.transfer-card:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+    scale: 103%;
+}
+
+.add-user-fav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-user-fav i {
+    color: #333;
+    font-size: 1.2em;
+}
+
+.add-user-fav span {
+    font-weight: bold;
+    color: #333;
+}
+
+.add-user-fav p {
+    margin: 0;
+    color: #666;
+}
+
+.delete-button {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: red;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.2em;
+}

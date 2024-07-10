@@ -1,0 +1,88 @@
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    height: 100vh;
+    width: 100%;
+    right: 0;
+    position: absolute;
+}
+
+.welcome {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.welcome h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.user{
+    font-size: 2.5em;
+    margin: 0;
+}
+
+.cuentas-box{
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    color: #fff;
+    background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/double-bubble-dark.png');
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.monetaria, .ahorro {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    position: relative;
+}
+
+.cuenta-box{
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.cuenta-title{
+    font-size: 1em;
+    color: #999;
+}
+
+.card-number {
+    margin-top: 60px;
+    font-size: 1em;
+    letter-spacing: 2px;
+}
+
+.card-type {
+    font-size: 1em;
+    color: #999;
+    margin-top: 10px;
+}
+
+.card-title {
+    font-size: 1em;
+    color: #999;
+    margin-top: 10px;
+}
+
+.balance {
+    font-size: 2em;
+    margin: 0 0 0;
+}
+
+.cheems{
+    width: 200px;
+}
